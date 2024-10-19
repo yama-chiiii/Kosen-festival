@@ -31,9 +31,9 @@ export const Seibetsu = () => {
         </div>
         <div className='relative w-full flex flex-col justify-center items-center'>
         <img
-            src='/oigo.png'
+            src='/boy.png'
             alt='onago'
-            className='w-1/4 mt-20 object-cover relative'
+            className='w-1/3 mt-20 object-cover relative'
           ></img>
           <img
             src='/frame2.png'
