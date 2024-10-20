@@ -1,52 +1,60 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 export const Seibetsu = () => {
-  const navigate = useNavigate() // ページ遷移用のフック
+  const navigate = useNavigate(); // ページ遷移用のフック
 
   return (
-    <div className='w-full h-screen flex flex-col items-center bg-pink-base'>
+    <div className="w-full h-screen flex flex-col items-center bg-pink-base relative">
+      {/* 背景画像 */}
       <img
-        src='/kumo.png'
-        alt='kumo'
-        className='w-full z-0 absolute bottom-0 left-0 opacity-70'
-      ></img>
+        src="/kumo.png"
+        alt="kumo"
+        className="w-full h-full object-cover opacity-90 absolute bottom-0 left-0"
+      />
+
+      {/* 吹き出し */}
       <img
-        src='/fukidasi.png'
-        alt='Fukidasi'
-        className='w-auto h-1/3 mt-12 ml-8 object-cover'
-      ></img>
-      <div className='w-auto h-2/3 flex flex-row justify-center'>
-        <div className='relative w-full flex flex-col justify-center items-center'>
+        src="/fukidasi.png"
+        alt="Fukidasi"
+        className="w-auto h-1/3 mt-12 object-contain z-10"
+      />
+
+      {/* キャラクター選択部分 */}
+      <div className="w-full h-2/3 flex justify-center items-center z-10">
+        {/* 女の子 */}
+        <div className="relative flex flex-col justify-center items-center w-1/2">
           <img
-            src='/girl.png'
-            alt='onago'
-            className='w-1/2 mt-20 object-cover relative'
-          ></img>
+            src="/girl.png"
+            alt="onago"
+            className="w-230 object-contain mt-40"
+          />
           <img
-            src='/frame1.png'
-            alt='frame'
-            className='w-2/3 absolute top-0 left-0 mx-40 object-cover pointer-events-none'
-          ></img>
+            src="/frame1.png"
+            alt="frame"
+            className="absolute -top-10 left-0 w-full h-full object-contain pointer-events-none z-0"
+          />
           <button
-            className='absolute top-440 transform -translate-y-1/2 flex justify-center items-center rounded-xl mx-40 px-24 py-12 bg-pink-dark font-yomogi text-3xl'
+            className="absolute top-[77%] px-20 py-8 bg-pink-dark text-black rounded-xl font-yomogi text-3xl z-10"  // ボタンの位置を調整
             onClick={() => navigate('/onna')}
           >
             入学
           </button>
         </div>
-        <div className='relative w-full flex flex-col justify-center items-center'>
-        <img
-            src='/boy.png'
-            alt='onago'
-            className='w-1/3 mt-20 object-cover relative'
-          ></img>
+
+        {/* 男の子 */}
+        <div className="relative flex flex-col justify-center items-center w-1/2">
           <img
-            src='/frame2.png'
-            alt='frame'
-            className='w-2/3 absolute top-0 left-0 mx-40 object-cover pointer-events-none'
-          ></img>
-          <button
-            className='absolute top-440 transform -translate-y-1/2 flex justify-center items-center rounded-xl mx-40 px-24 py-12 bg-blue-dark font-yomogi text-3xl'
+            src="/boy.png"
+            alt="boy"
+            className="w-230 object-contain mt-20"
+          />
+          <img
+            src="/frame2.png"
+            alt="frame"
+            className="absolute -top-10 left-0 w-full h-full object-contain pointer-events-none"
+          />
+           <button
+            className="absolute top-[77%] px-20 py-8 bg-blue-dark text-black rounded-xl font-yomogi text-3xl z-10"  // ボタンの位置を調整
             onClick={() => navigate('/otoko')}
           >
             入学
@@ -54,5 +62,5 @@ export const Seibetsu = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

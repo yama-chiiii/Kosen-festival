@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import IconGrid from './components/IconGrid';
 import Serifu from './components/Serifu';
-import Status from './components/Status';
 import Tooltip from './components/Tooltip';
 
 type IconKey = 'icon1' | 'icon2' | 'icon3' | 'icon4' | 'icon5' | 'icon6' | 'icon7' | 'icon8';
@@ -63,39 +62,62 @@ export const Onna = () => {
 
     switch (icon) {
       case 'icon1':
-        setSeiseki(prev => Math.min(prev + 3, 10));
-        setYami(prev => Math.min(prev - 1, 10));
+        // 勉強
+        setRiajuu(prevRiajuu => Math.max(prevRiajuu - 1, 0));  // リア充度は0未満にならない
+        setSeiseki(prevSeiseki => Math.min(prevSeiseki + 2, 10));  // せいせきは10を超えない
+        setYami(prevYami => Math.min(prevYami + 1, 10));  // やみ度は10を超えない
         break;
+
       case 'icon2':
-        setRiajuu(prev => Math.min(prev + 1, 10));
-        setYami(prev => Math.min(prev + 1, 10));
+        // 運動部
+        setRiajuu(prevRiajuu => Math.min(prevRiajuu + 1, 10));  // リア充度は10を超えない
+        setSeiseki(prevSeiseki => Math.min(prevSeiseki + 1, 10));  // せいせきは10を超えない
+        setYami(prevYami => Math.max(prevYami - 1, 0));  // やみ度は0未満にならない（修正）
         break;
+
       case 'icon3':
-        setRiajuu(prev => Math.min(prev - 1, 10));
-        setSeiseki(prev => Math.min(prev + 3, 10));
+        // 文化部
+        setRiajuu(prevRiajuu => Math.max(prevRiajuu - 1, 0));  // リア充度は0未満にならない（修正）
+        setSeiseki(prevSeiseki => Math.min(prevSeiseki + 1, 10));  // せいせきは10を超えない
         break;
+
       case 'icon4':
-        setRiajuu(prev => Math.min(prev + 3, 10));
-        setYami(prev => Math.min(prev - 1, 10));
+        // 恋愛
+        setRiajuu(prevRiajuu => Math.min(prevRiajuu + 2, 10));  // リア充度は10を超えない
+        setSeiseki(prevSeiseki => Math.min(prevSeiseki + 1, 10));  // せいせきは10を超えない
+        setYami(prevYami => Math.min(prevYami + 1, 10));  // やみ度は10を超えない
         break;
+
       case 'icon5':
-        setRiajuu(prev => Math.min(prev + 3, 10));
-        setSeiseki(prev => Math.max(prev - 1, 0));
+        // よからぬこと
+        setRiajuu(prevRiajuu => Math.min(prevRiajuu + 1, 10));  // リア充度は10を超えない
+        setSeiseki(prevSeiseki => Math.max(prevSeiseki - 3, 0));  // せいせきは0未満にならない（修正）
+        setYami(prevYami => Math.min(prevYami + 1, 10));  // やみ度は10を超えない
         break;
+
       case 'icon6':
-        setSeiseki(prev => Math.min(prev - 1, 10));
-        setYami(prev => Math.max(prev + 3, 0));
+        // 美容
+        setRiajuu(prevRiajuu => Math.min(prevRiajuu + 1, 10));  // リア充度は10を超えない
+        setSeiseki(prevSeiseki => Math.max(prevSeiseki - 1, 0));  // せいせきは10を超えない（修正）
+        setYami(prevYami => Math.max(prevYami - 1, 0));  // やみ度は10を超えない
         break;
+
       case 'icon7':
-        setRiajuu(prev => Math.min(prev - 1, 10));
-        setYami(prev => Math.max(prev + 3, 0));
+        // Instagram
+        setRiajuu(prevRiajuu => Math.min(prevRiajuu + 1, 10));  // リア充度は10を超えない
+        setSeiseki(prevSeiseki => Math.max(prevSeiseki - 1, 0));  // せいせきは0未満にならない（修正）
+        setYami(prevYami => Math.min(prevYami + 1, 10));  // やみ度は10を超えない
         break;
+
       case 'icon8':
-        setRiajuu(prev => Math.min(prev + 1, 10));
-        setSeiseki(prev => Math.max(prev + 1, 0));
+        // Twitter
+        setRiajuu(prevRiajuu => Math.max(prevRiajuu - 1, 0));  // リア充度は0未満にならない
+        setSeiseki(prevSeiseki => Math.max(prevSeiseki - 1, 0));  // せいせきは0未満にならない
+        setYami(prevYami => Math.min(prevYami + 1, 10));  // やみ度は10を超えない
         break;
     }
-    setCount((prevCount) => (prevCount < years.length - 1 ? prevCount + 1 : prevCount));
+
+    setCount(prevCount => (prevCount < years.length - 1 ? prevCount + 1 : prevCount));
   };
 
   const handleMouseEnter = (icon: IconKey, event: React.MouseEvent<HTMLImageElement>) => {
@@ -114,8 +136,41 @@ export const Onna = () => {
   };
 
   const renderHearts = (count: number) => {
-    return '♥'.repeat(count) + '♡'.repeat(10 - count);
+    const validCount = Math.max(count, 0);  // countが負の値の場合、0に制限する
+    return '♥'.repeat(validCount) + '♡'.repeat(10 - validCount);
   };
+
+  const getResult = () => {
+    if (yami >= 7 && seiseki <= 4) return 'Jirai';
+    if (riajuu <= 5 && yami <= 7) return 'Wotaku_girl';
+    if (riajuu >= 7 && yami >= 5) return 'Gal';
+    if (seiseki <= 2) return 'Riunen';
+    return 'Default_girl';
+  };
+
+  interface StatusProps {
+    riajuu: number;
+    seiseki: number;
+    yami: number;
+    renderHearts: (count: number) => string;
+  }
+
+  const Status: React.FC<StatusProps> = ({ riajuu, seiseki, yami, renderHearts }) => {
+    console.log('リア充度:', riajuu);
+    console.log('せいせき:', seiseki);
+    console.log('やみ度:', yami);
+
+    return (
+      <div className='absolute top-150 left-100 z-40 font-yomogi font-base text-xl'>
+        <div>
+          <p>リア充度 <span className='text-red-500'>{renderHearts(riajuu)}</span></p>
+          <p>せいせき <span className='text-red-500'>{renderHearts(seiseki)}</span></p>
+          <p>やみ度 <span className='text-red-500'>{renderHearts(yami)}</span></p>
+        </div>
+      </div>
+    );
+  };
+
 
   return (
     <div className='w-full h-screen overflow-hidden flex bg-pink-base relative'>
@@ -141,7 +196,7 @@ export const Onna = () => {
           alt='serifu'
           className='w-280 h-auto ml-200 -mt-12 object-cover'
         />
-        <div className='w-1/2 h-auto ml-150 -mt-48 flex items-center'>
+        <div className='w-1/3 h-auto ml-220 -mt-48 flex items-center'>
           <img
             src='/girl.png'
             alt='girl'
@@ -167,10 +222,10 @@ export const Onna = () => {
           />
         </div>
         {count === years.length - 1 && (
-          <div className='absolute bottom-10 left-300'>
+          <div className='absolute bottom-100 left-220'>
             <button
-              className='px-6 py-3 bg-green-500 text-white text-xl rounded-full shadow-lg hover:bg-green-700 transition'
-              onClick={() => navigate('/sotugyou')}
+              className='w-120 h-40 p-8 bg-pink-300 text-white text-xl rounded shadow-lg hover:bg-pink-400 transition z-10'
+              onClick={() => navigate(`/sotugyou?resultType=${getResult()}`)}
             >
               卒業
             </button>

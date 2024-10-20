@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export const Sotugyou = () => {
   const [hearts, setHearts] = useState(['♡', '♡', '♡']);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     // スクロールを禁止
     document.body.style.overflow = 'hidden';
+    const params = new URLSearchParams(location.search);
+    const resultType = params.get('resultType') || 'Default_girl';
 
     // ハートのアニメーション
     const heartTimer = setInterval(() => {
@@ -23,16 +26,17 @@ export const Sotugyou = () => {
 
     // 3秒後にページ遷移
     const timer = setTimeout(() => {
-      navigate('/kekka');
+      navigate(`/kekka/${resultType}`);
     }, 3500);
+
 
     // クリーンアップ処理
     return () => {
       clearTimeout(timer);
       clearInterval(heartTimer);
-      document.body.style.overflow = 'auto'; // 元に戻す
+      document.body.style.overflow = 'auto';
     };
-  }, [navigate]);
+  }, [location, navigate]);
 
   return (
     <div className='w-full h-screen overflow-hidden flex flex-col justify-center items-center bg-pink-base relative'>
