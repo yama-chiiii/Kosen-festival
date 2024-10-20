@@ -54,7 +54,7 @@ const App: React.FC = () => {
   const [isPcSize, setIsPcSize] = useState(true);
 
   const checkPcSize = () => {
-    const isPcSize = window.innerWidth >= 1400 && window.innerHeight >= 600;
+    const isPcSize = window.innerWidth >= 0 && window.innerHeight >= 0;
     setIsPcSize(isPcSize);
   };
 
