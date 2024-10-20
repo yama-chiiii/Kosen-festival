@@ -63,34 +63,37 @@ export const Otoko = () => {
     if (count === years.length - 1) return;
 
     switch (icon) {
-      case 'icon1'://勉強
-        setSeiseki(prev => Math.min(prev + 1, 10));
+      case 'icon1':
+        setSeiseki(prev => Math.min(Math.max(prev + 3, 0), 10));
+        setYami(prev => Math.min(Math.max(prev - 1, 0), 10));
         break;
-      case 'icon2'://運動部
-        setRiajuu(prev => Math.min(prev + 1, 10));
+      case 'icon2':
+        setRiajuu(prev => Math.min(Math.max(prev + 1, 0), 10));
+        setYami(prev => Math.min(Math.max(prev + 1, 0), 10));
         break;
-      case 'icon3'://文化部
-        setSeiseki(prev => Math.min(prev + 1, 10));
+      case 'icon3':
+        setRiajuu(prev => Math.min(Math.max(prev - 1, 0), 10));
+        setSeiseki(prev => Math.min(Math.max(prev + 3, 0), 10));
         break;
-      case 'icon4'://恋愛
-        setRiajuu(prev => Math.min(prev + 2, 10));
-        setYami(prev => Math.min(prev + 1, 10));
+      case 'icon4':
+        setRiajuu(prev => Math.min(Math.max(prev + 3, 0), 10));
+        setYami(prev => Math.min(Math.max(prev - 1, 0), 10));
         break;
-      case 'icon5'://いけないこと
-        setYami(prev => Math.min(prev + 1, 10));
-        setSeiseki(prev => Math.max(prev - 2, 0));
+      case 'icon5':
+        setRiajuu(prev => Math.min(Math.max(prev + 3, 0), 10));
+        setSeiseki(prev => Math.min(Math.max(prev - 1, 0), 10));
         break;
-      case 'icon6'://美容
-        setRiajuu(prev => Math.min(prev + 1, 10));
-        setYami(prev => Math.max(prev - 1, 0));
+      case 'icon6':
+        setSeiseki(prev => Math.min(Math.max(prev - 1, 0), 10));
+        setYami(prev => Math.min(Math.max(prev + 3, 0), 10));
         break;
-      case 'icon7'://Twitter
-        setRiajuu(prev => Math.min(prev + 1, 10));
-        setSeiseki(prev => Math.max(prev - 1, 0));
+      case 'icon7':
+        setRiajuu(prev => Math.min(Math.max(prev - 1, 0), 10));
+        setYami(prev => Math.min(Math.max(prev + 3, 0), 10));
         break;
-      case 'icon8'://Instagram
-        setYami(prev => Math.min(prev + 1, 10));
-        setSeiseki(prev => Math.max(prev - 1, 0));
+      case 'icon8':
+        setRiajuu(prev => Math.min(Math.max(prev + 1, 0), 10));
+        setSeiseki(prev => Math.min(Math.max(prev + 1, 0), 10));
         break;
     }
     setCount((prevCount) => (prevCount < years.length - 1 ? prevCount + 1 : prevCount));
@@ -137,7 +140,7 @@ export const Otoko = () => {
         <img
           src='/serifu2.png'
           alt='serifu'
-          className='w-280 h-auto ml-300 -mt-2  object-cover'
+          className='w-280 h-auto ml-300 -mt-2 z-index 1 object-cover'
         />
         <div className='w-1/2 h-2/4 ml-150 -mt-48  flex items-center'>
           <img 
@@ -181,4 +184,3 @@ export const Otoko = () => {
     </div>
   );
 };
-

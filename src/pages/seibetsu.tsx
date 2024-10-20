@@ -4,7 +4,7 @@ export const Seibetsu = () => {
   const navigate = useNavigate() // ページ遷移用のフック
 
   return (
-    <div className='w-full h-screen overflow-hidden flex flex-col items-center bg-pink-base'>
+    <div className='w-full h-screen flex flex-col items-center bg-pink-base'>
       <img
         src='/kumo.png'
         alt='kumo'

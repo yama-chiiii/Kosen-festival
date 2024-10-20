@@ -63,33 +63,36 @@ export const Onna = () => {
 
     switch (icon) {
       case 'icon1':
-        setSeiseki(prev => Math.min(prev + 1, 10));
+        setSeiseki(prev => Math.min(prev + 3, 10));
+        setYami(prev => Math.min(prev - 1, 10));
         break;
       case 'icon2':
         setRiajuu(prev => Math.min(prev + 1, 10));
+        setYami(prev => Math.min(prev + 1, 10));
         break;
       case 'icon3':
-        setSeiseki(prev => Math.min(prev + 1, 10));
+        setRiajuu(prev => Math.min(prev - 1, 10));
+        setSeiseki(prev => Math.min(prev + 3, 10));
         break;
       case 'icon4':
-        setRiajuu(prev => Math.min(prev + 2, 10));
-        setYami(prev => Math.min(prev + 1, 10));
+        setRiajuu(prev => Math.min(prev + 3, 10));
+        setYami(prev => Math.min(prev - 1, 10));
         break;
       case 'icon5':
-        setYami(prev => Math.min(prev + 1, 10));
-        setSeiseki(prev => Math.max(prev - 2, 0));
+        setRiajuu(prev => Math.min(prev + 3, 10));
+        setSeiseki(prev => Math.max(prev - 1, 0));
         break;
       case 'icon6':
-        setRiajuu(prev => Math.min(prev + 1, 10));
-        setYami(prev => Math.max(prev - 1, 0));
+        setSeiseki(prev => Math.min(prev - 1, 10));
+        setYami(prev => Math.max(prev + 3, 0));
         break;
       case 'icon7':
-        setRiajuu(prev => Math.min(prev + 1, 10));
-        setSeiseki(prev => Math.max(prev - 1, 0));
+        setRiajuu(prev => Math.min(prev - 1, 10));
+        setYami(prev => Math.max(prev + 3, 0));
         break;
       case 'icon8':
-        setYami(prev => Math.min(prev + 1, 10));
-        setSeiseki(prev => Math.max(prev - 1, 0));
+        setRiajuu(prev => Math.min(prev + 1, 10));
+        setSeiseki(prev => Math.max(prev + 1, 0));
         break;
     }
     setCount((prevCount) => (prevCount < years.length - 1 ? prevCount + 1 : prevCount));
