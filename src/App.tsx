@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import { Audio } from './components/Audio';
 import { AudioProvider } from './components/AudioContext';
+import { Kekka } from './components/kekka';
 import { Onna } from './components/onna';
 import { Otoko } from './components/otoko';
 import { Seibetsu } from './components/seibetsu';
@@ -81,7 +82,8 @@ const App: React.FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/seibetsu/*" element={<Seibetsu />} />
           <Route path="/onna" element={<Onna />} />
-          <Route path="/otoko" element={<Otoko />} />
+            <Route path="/otoko" element={<Otoko />} />
+            <Route path="/kekka" element={<Kekka />} />
           </Routes>
           </div>
       </Router>

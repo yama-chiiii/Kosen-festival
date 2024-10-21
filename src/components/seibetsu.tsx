@@ -6,6 +6,11 @@ export const Seibetsu = () => {
   return (
     <div className='w-full h-screen overflow-hidden flex flex-col items-center bg-pink-base'>
       <img
+        src='/kumo.png'
+        alt='kumo'
+        className='w-full z-0 absolute bottom-0 left-0 opacity-70'
+      ></img>
+      <img
         src='/fukidasi.png'
         alt='Fukidasi'
         className='w-auto h-1/3 mt-12 ml-8 object-cover'
