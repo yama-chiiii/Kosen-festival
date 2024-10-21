@@ -171,13 +171,13 @@ export const Otoko = () => {
         <img
           src='/serifu2.png'
           alt='serifu'
-          className='w-280 h-auto  z-index 1 potision:relative; ml-350 -mt-70'
+          className='w-280 h-auto  z-index 1 potision:relative; ml-240 -mt-70'
         />
         <div className='w-1/3 h-auto flex items-center '>
           <img 
             src='/boy.png'
             alt='boy'
-            className='w-460 h-auto object-contain potision:absolute -mt-100 ml-200'
+            className='w-460 h-auto object-contain potision:absolute -mt-45 ml-280'
           />
         </div>
       </div>
@@ -201,7 +201,7 @@ export const Otoko = () => {
         {count === years.length - 1 && (
           <div className='absolute bottom-30 left-230'>
             <button
-              className='px-11 py-5 bg-blue-500 text-white text-4xl rounded-2xl shadow-lg hover:bg-blue-700 transition'
+              className='w-100 px-11 py-5 bg-blue-500 text-white text-xl rounded shadow-lg hover:bg-blue-700 transition'
               onClick={() => navigate(`/sotugyou?resultType=${getResult()}`)}
             >
               卒業
