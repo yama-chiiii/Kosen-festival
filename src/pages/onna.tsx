@@ -75,7 +75,7 @@ export const Onna = () => {
     switch (icon) {
       case 'icon1':
         setSeiseki((prev) => Math.min(Math.max(prev + 3, 0), 10))
-        setYami((prev) => Math.min(Math.max(prev - 1, 0), 10))
+        setYami((prev) => Math.min(Math.max(prev + 1, 0), 10))
         break
       case 'icon2':
         setRiajuu((prev) => Math.min(Math.max(prev + 1, 0), 10))
@@ -94,8 +94,8 @@ export const Onna = () => {
         setSeiseki((prev) => Math.min(Math.max(prev - 1, 0), 10))
         break
       case 'icon6':
-        setSeiseki((prev) => Math.min(Math.max(prev - 1, 0), 10))
-        setYami((prev) => Math.min(Math.max(prev + 3, 0), 10))
+        setSeiseki((prev) => Math.min(Math.max(prev - 3, 0), 10))
+        setYami((prev) => Math.min(Math.max(prev + 2, 0), 10))
         break
       case 'icon7':
         setRiajuu((prev) => Math.min(Math.max(prev - 1, 0), 10))
@@ -135,7 +135,7 @@ export const Onna = () => {
   }
 
   const getResult = () => {
-    if (seiseki <= 0) return 'Riunen' // 5%
+    if (seiseki <= 0 && riajuu <= 3) return 'Riunen' // 5%
     if (yami >= 7 && seiseki <= 4) return 'Jirai' // 15%
     if (riajuu >= 7 && yami <= 5) return 'Gal' // 15%
     if (riajuu <= 6 && yami <= 4) return 'Default_girl' // 25%
@@ -215,8 +215,8 @@ export const Onna = () => {
         </div>
       </div>
 
-      <div className='w-1/2 h-screen z-20 relative'>
-        <div className='relative'>
+      <div className='w-1/2 h-screen z-20 relative '>
+        <div className='relative ml-21'>
           <img
             src='/status.png'
             alt='status'
