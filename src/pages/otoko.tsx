@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import IconGrid from './components/IconGrid';
 import Serifu from './components/Serifu';
-import Status from './components/Status';
 import Tooltip from './components/Tooltip';
 
 type IconKey = 'icon1' | 'icon2' | 'icon3' | 'icon4' | 'icon5' | 'icon6' | 'icon7' | 'icon8';
@@ -73,7 +72,7 @@ export const Otoko = () => {
         break;
       case 'icon3':
         setRiajuu(prev => Math.min(Math.max(prev - 1, 0), 10));
-        setSeiseki(prev => Math.min(Math.max(prev + 3, 0), 10));
+        setSeiseki(prev => Math.min(Math.max(prev + 2, 0), 10));
         break;
       case 'icon4':
         setRiajuu(prev => Math.min(Math.max(prev + 3, 0), 10));
@@ -174,7 +173,7 @@ export const Otoko = () => {
           className='w-280 h-auto  z-index 1 potision:relative; ml-240 -mt-70'
         />
         <div className='w-1/3 h-auto flex items-center '>
-          <img 
+          <img
             src='/boy.png'
             alt='boy'
             className='w-460 h-auto object-contain potision:absolute -mt-45 ml-280'
@@ -201,7 +200,7 @@ export const Otoko = () => {
         {count === years.length - 1 && (
           <div className='absolute bottom-30 left-230'>
             <button
-              className='w-100 px-11 py-5 bg-blue-500 text-white text-xl rounded shadow-lg hover:bg-blue-700 transition'
+              className='px-11 py-5 bg-blue-300 text-white text-4xl rounded-2xl shadow-lg hover:bg-blue-400 transition font-yomogi'
               onClick={() => navigate(`/sotugyou?resultType=${getResult()}`)}
             >
               卒業

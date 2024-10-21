@@ -10,7 +10,7 @@ export const Onna = () => {
   const [count, setCount] = useState(0);
   const [hoveredIcon, setHoveredIcon] = useState<IconKey | null>(null);
   const [tooltipPosition, setTooltipPosition] = useState<{ top: number; left: number } | null>(null);
-  const [currentSerifu, setCurrentSerifu] = useState('デフォルトのセリフです。');
+  const [currentSerifu, setCurrentSerifu] = useState('やっほう。今日もがんばろう。');
   const [seiseki, setSeiseki] = useState(0);
   const [riajuu, setRiajuu] = useState(0);
   const [yami, setYami] = useState(0);
@@ -31,11 +31,11 @@ export const Onna = () => {
 
   // アイコンごとのセリフ
   const serifuMap: Record<IconKey, string> = {
-    icon1: "勉強頑張ろう！",
-    icon2: "運動部は元気が一番！",
-    icon3: "文化部も大切だよ！",
-    icon4: "恋愛は慎重にね。",
-    icon5: "いけないことしてない？",
+    icon1: "勉強が学生の仕事ならお給料ほしいよね。",
+    icon2: "運動部ってなんであんなに声でかいんだろ。",
+    icon3: "万年文化部高専生",
+    icon4: "高専あるある。メンヘラ多め。",
+    icon5: "法律守れないのは…ね？w",
     icon6: "美容は大事！",
     icon7: "インスタ映えだいじ",
     icon8: "結局もどってきちゃうんだよね",
@@ -43,18 +43,18 @@ export const Onna = () => {
 
   // アイコンごとのツールチップ表示情報
   const tooltipInfo: Record<IconKey, string> = {
-    icon1: "これは勉強アイコンです。",
-    icon2: "これは運動部アイコンです。",
-    icon3: "これは文化部アイコンです。",
-    icon4: "これは恋愛アイコンです。",
-    icon5: "これはいけないことアイコンです♡",
-    icon6: "これは美容アイコンです。",
-    icon7: "これはSNS(Twitter)アイコンです。",
-    icon8: "これはSNS(Instagram)アイコンです。",
+    icon1: "勉強。",
+    icon2: "部活(運動部)",
+    icon3: "部活(文化部)",
+    icon4: "恋愛",
+    icon5: "いけないこと♡",
+    icon6: "美容",
+    icon7: "Instagram",
+    icon8: "死臭と腐臭が漂う場所",
   };
 
   useEffect(() => {
-    setCurrentSerifu("初めまして！");
+    setCurrentSerifu("こんにちは");
   }, []);
 
   const handleClick = (icon: IconKey) => {
@@ -62,63 +62,42 @@ export const Onna = () => {
 
     switch (icon) {
       case 'icon1':
-        // 勉強
-        setRiajuu(prevRiajuu => Math.max(prevRiajuu - 1, 0));  // リア充度は0未満にならない
-        setSeiseki(prevSeiseki => Math.min(prevSeiseki + 2, 10));  // せいせきは10を超えない
-        setYami(prevYami => Math.min(prevYami + 1, 10));  // やみ度は10を超えない
+        setSeiseki(prev => Math.min(Math.max(prev + 3, 0), 10));
+        setYami(prev => Math.min(Math.max(prev - 1, 0), 10));
         break;
-
       case 'icon2':
-        // 運動部
-        setRiajuu(prevRiajuu => Math.min(prevRiajuu + 1, 10));  // リア充度は10を超えない
-        setSeiseki(prevSeiseki => Math.min(prevSeiseki + 1, 10));  // せいせきは10を超えない
-        setYami(prevYami => Math.max(prevYami - 1, 0));  // やみ度は0未満にならない（修正）
+        setRiajuu(prev => Math.min(Math.max(prev + 1, 0), 10));
+        setYami(prev => Math.min(Math.max(prev + 1, 0), 10));
         break;
-
       case 'icon3':
-        // 文化部
-        setRiajuu(prevRiajuu => Math.max(prevRiajuu - 1, 0));  // リア充度は0未満にならない（修正）
-        setSeiseki(prevSeiseki => Math.min(prevSeiseki + 1, 10));  // せいせきは10を超えない
+        setRiajuu(prev => Math.min(Math.max(prev - 1, 0), 10));
+        setSeiseki(prev => Math.min(Math.max(prev + 2, 0), 10));
         break;
-
       case 'icon4':
-        // 恋愛
-        setRiajuu(prevRiajuu => Math.min(prevRiajuu + 2, 10));  // リア充度は10を超えない
-        setSeiseki(prevSeiseki => Math.min(prevSeiseki + 1, 10));  // せいせきは10を超えない
-        setYami(prevYami => Math.min(prevYami + 1, 10));  // やみ度は10を超えない
+        setRiajuu(prev => Math.min(Math.max(prev + 3, 0), 10));
+        setYami(prev => Math.min(Math.max(prev - 1, 0), 10));
         break;
-
       case 'icon5':
-        // よからぬこと
-        setRiajuu(prevRiajuu => Math.min(prevRiajuu + 1, 10));  // リア充度は10を超えない
-        setSeiseki(prevSeiseki => Math.max(prevSeiseki - 3, 0));  // せいせきは0未満にならない（修正）
-        setYami(prevYami => Math.min(prevYami + 1, 10));  // やみ度は10を超えない
+        setRiajuu(prev => Math.min(Math.max(prev + 3, 0), 10));
+        setSeiseki(prev => Math.min(Math.max(prev - 1, 0), 10));
         break;
-
       case 'icon6':
-        // 美容
-        setRiajuu(prevRiajuu => Math.min(prevRiajuu + 1, 10));  // リア充度は10を超えない
-        setSeiseki(prevSeiseki => Math.max(prevSeiseki - 1, 0));  // せいせきは10を超えない（修正）
-        setYami(prevYami => Math.max(prevYami - 1, 0));  // やみ度は10を超えない
+        setSeiseki(prev => Math.min(Math.max(prev - 1, 0), 10));
+        setYami(prev => Math.min(Math.max(prev + 3, 0), 10));
         break;
-
       case 'icon7':
-        // Instagram
-        setRiajuu(prevRiajuu => Math.min(prevRiajuu + 1, 10));  // リア充度は10を超えない
-        setSeiseki(prevSeiseki => Math.max(prevSeiseki - 1, 0));  // せいせきは0未満にならない（修正）
-        setYami(prevYami => Math.min(prevYami + 1, 10));  // やみ度は10を超えない
+        setRiajuu(prev => Math.min(Math.max(prev - 1, 0), 10));
+        setYami(prev => Math.min(Math.max(prev + 3, 0), 10));
         break;
-
       case 'icon8':
-        // Twitter
-        setRiajuu(prevRiajuu => Math.max(prevRiajuu - 1, 0));  // リア充度は0未満にならない
-        setSeiseki(prevSeiseki => Math.max(prevSeiseki - 1, 0));  // せいせきは0未満にならない
-        setYami(prevYami => Math.min(prevYami + 1, 10));  // やみ度は10を超えない
+        setRiajuu(prev => Math.min(Math.max(prev + 1, 0), 10));
+        setSeiseki(prev => Math.min(Math.max(prev + 1, 0), 10));
         break;
     }
-
-    setCount(prevCount => (prevCount < years.length - 1 ? prevCount + 1 : prevCount));
+    setCount((prevCount) => (prevCount < years.length - 1 ? prevCount + 1 : prevCount));
   };
+
+
 
   const handleMouseEnter = (icon: IconKey, event: React.MouseEvent<HTMLImageElement>) => {
     if (count === years.length - 1) return;
@@ -132,7 +111,7 @@ export const Onna = () => {
   const handleMouseLeave = () => {
     setHoveredIcon(null);
     setTooltipPosition(null);
-    setCurrentSerifu("デフォルトのセリフです。");
+    setCurrentSerifu("やっほう。今日もがんばろう。");
   };
 
   const renderHearts = (count: number) => {
@@ -141,12 +120,13 @@ export const Onna = () => {
   };
 
   const getResult = () => {
-    if (yami >= 7 && seiseki <= 4) return 'Jirai';
-    if (riajuu <= 5 && yami <= 7) return 'Wotaku_girl';
-    if (riajuu >= 7 && yami >= 5) return 'Gal';
-    if (seiseki <= 2) return 'Riunen';
-    return 'Default_girl';
-  };
+    if (seiseki <= 0) return 'Riunen';  // 5%
+    if (yami >= 7 && seiseki <= 4) return 'Jirai';  // 15%
+    if (riajuu >= 7 && yami <= 5) return 'Gal';  // 15%
+    if (riajuu <= 6 && yami <= 4) return 'Default_girl';  // 25%
+    return 'Wotaku_girl';  // 40%
+};
+
 
   interface StatusProps {
     riajuu: number;
@@ -224,7 +204,7 @@ export const Onna = () => {
         {count === years.length - 1 && (
           <div className='absolute bottom-100 left-220'>
             <button
-              className='w-120 h-40 p-8 bg-pink-300 text-white text-xl rounded shadow-lg hover:bg-pink-400 transition z-10'
+              className='w-120 h-40 p-8 bg-pink-300 text-white text-xl rounded shadow-lg hover:bg-pink-400 transition z-10 font-yomogi'
               onClick={() => navigate(`/sotugyou?resultType=${getResult()}`)}
             >
               卒業

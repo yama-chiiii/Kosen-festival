@@ -4,44 +4,46 @@ import React, {
   useEffect,
   useRef,
   useState,
-} from 'react'
+} from 'react';
 
 type AudioContextType = {
-  isPlaying: boolean
-  handlePlay: () => void
-  handleStop: () => void
-}
+  isPlaying: boolean;
+  handlePlay: () => void;
+  handleStop: () => void;
+};
 
-const AudioContext = createContext<AudioContextType | undefined>(undefined)
+const AudioContext = createContext<AudioContextType | undefined>(undefined);
 
 export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const audioRef = useRef<HTMLAudioElement>(null)
-  const [isPlaying, setIsPlaying] = useState(false)
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
-  // audioRefの参照状態を確認するためのuseEffect
+  // 初回マウント時に自動再生
   useEffect(() => {
     if (audioRef.current) {
-      console.log('audioRef is correctly set:', audioRef.current)
-    } else {
-      console.error('audioRef is not correctly set')
+      audioRef.current.play().then(() => {
+        setIsPlaying(true);
+      }).catch((error) => {
+        console.error('Auto-play was prevented:', error);
+      });
     }
-  }, [])
+  }, []);
 
   const handlePlay = () => {
     if (audioRef.current) {
-      audioRef.current.play()
-      setIsPlaying(true)
+      audioRef.current.play();
+      setIsPlaying(true);
     }
-  }
+  };
 
   const handleStop = () => {
     if (audioRef.current) {
-      audioRef.current.pause()
-      setIsPlaying(false)
+      audioRef.current.pause();
+      setIsPlaying(false);
     }
-  }
+  };
 
   return (
     <AudioContext.Provider value={{ isPlaying, handlePlay, handleStop }}>
@@ -49,13 +51,13 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({
       {/* グローバルにオーディオ要素を配置 */}
       <audio ref={audioRef} src="/music.mp3" loop />
     </AudioContext.Provider>
-  )
-}
+  );
+};
 
 export const useAudio = () => {
-  const context = useContext(AudioContext)
+  const context = useContext(AudioContext);
   if (!context) {
-    throw new Error('useAudio must be used within an AudioProvider')
+    throw new Error('useAudio must be used within an AudioProvider');
   }
-  return context
-}
+  return context;
+};
