@@ -5,12 +5,12 @@ import {
   Routes,
   useNavigate,
 } from 'react-router-dom';
-import { Audio } from './components/Audio';
-import { AudioProvider } from './components/AudioContext';
-import { Kekka } from './components/kekka';
-import { Onna } from './components/onna';
-import { Otoko } from './components/otoko';
-import { Seibetsu } from './components/seibetsu';
+import { Audio } from './pages/Audio';
+import { AudioProvider } from './pages/AudioContext';
+import { Kekka } from './pages/kekka';
+import { Onna } from './pages/onna';
+import { Otoko } from './pages/otoko';
+import { Seibetsu } from './pages/seibetsu';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
