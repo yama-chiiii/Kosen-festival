@@ -167,7 +167,7 @@ export const Onna = () => {
           <div className='absolute bottom-10 left-300'>
             <button
               className='px-6 py-3 bg-green-500 text-white text-xl rounded-full shadow-lg hover:bg-green-700 transition'
-              onClick={() => navigate('/kekka')}
+              onClick={() => navigate('/sotugyou')}
             >
               卒業
             </button>

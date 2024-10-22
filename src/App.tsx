@@ -11,6 +11,7 @@ import { Kekka } from './pages/kekka';
 import { Onna } from './pages/onna';
 import { Otoko } from './pages/otoko';
 import { Seibetsu } from './pages/seibetsu';
+import { Sotugyou } from './pages/sotugyou';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -83,7 +84,8 @@ const App: React.FC = () => {
           <Route path="/seibetsu/*" element={<Seibetsu />} />
           <Route path="/onna" element={<Onna />} />
             <Route path="/otoko" element={<Otoko />} />
-            <Route path="/kekka" element={<Kekka />} />
+            <Route path="/sotugyou" element={<Sotugyou />} />
+          <Route path="/kekka" element={<Kekka />} />
           </Routes>
           </div>
       </Router>
