@@ -192,7 +192,7 @@ export const Onna = () => {
           alt='serifu'
           className='w-280 h-auto ml-200 -mt-12 object-cover'
         />
-        <div className='w-1/2 h-auto ml-150 -mt-48 flex items-center'>
+        <div className='w-1/3 h-auto ml-220 -mt-48 flex items-center'>
           <img
             src='/girl.png'
             alt='girl'

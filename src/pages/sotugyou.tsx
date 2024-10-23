@@ -23,7 +23,7 @@ export const Sotugyou = () => {
 
     // 3秒後にページ遷移
     const timer = setTimeout(() => {
-      navigate('/kekka');
+      navigate('/kekka_girl');
     }, 3500);
 
     // クリーンアップ処理

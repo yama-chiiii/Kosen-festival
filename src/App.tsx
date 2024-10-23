@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Route, BrowserRouter as Router, Routes, useNavigate } from 'react-router-dom';
 import { Audio } from './pages/Audio';
 import { AudioProvider } from './pages/AudioContext';
-import { Kekka } from './pages/kekka';
+import { KekkaG } from './pages/kekkaG';
 import { Onna } from './pages/onna';
 import { Otoko } from './pages/otoko';
 import { Seibetsu } from './pages/seibetsu';
@@ -91,7 +91,7 @@ const App: React.FC = () => {
             <Route path="/onna" element={<Onna />} />
             <Route path="/otoko" element={<Otoko />} />
             <Route path="/sotugyou" element={<Sotugyou />} />
-            <Route path="/kekka" element={<Kekka />} />
+            <Route path="/kekka_girl" element={<KekkaG />} />
           </Routes>
         </div>
       </Router>
