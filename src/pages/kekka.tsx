@@ -19,10 +19,13 @@ export const Kekka = () => {
         className='w-full z-0 absolute bottom-0 left-0 opacity-60'
       ></img>
       <div className='w-1/2 h-screen z-10'>
+        <div className='w-full h-auto mt-200 ml-160'>
+          <p className=' text-5xl font-yomogi'>大学生風高専生の完成！</p>
+        </div>
         <img
           src='/default_girl.png'
           alt='onago'
-          className='w-1/2 h-auto ml-160 mt-160'
+          className='w-1/2 h-auto ml-160 -mt-12'
         ></img>
       </div>
       <div className='w-1/2 h-screen flex flex-col items-center z-10'>
