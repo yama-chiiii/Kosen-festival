@@ -218,9 +218,9 @@ export const Onna = () => {
           />
         </div>
         {count === years.length - 1 && (
-          <div className='absolute bottom-10 left-300'>
+          <div className='absolute bottom-100 left-220'>
             <button
-              className='px-6 py-3 bg-green-500 text-white text-xl rounded-full shadow-lg hover:bg-green-700 transition'
+              className='w-120 h-40 p-8 bg-pink-300 text-white text-xl rounded shadow-lg hover:bg-pink-400 transition z-10'
               onClick={() => navigate('/sotugyou')}
             >
               卒業
