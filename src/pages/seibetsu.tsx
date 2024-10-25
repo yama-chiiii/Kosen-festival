@@ -4,12 +4,12 @@ export const Seibetsu = () => {
   const navigate = useNavigate(); // ページ遷移用のフック
 
   return (
-    <div className="w-full h-screen overflow-hidden flex flex-col items-center bg-pink-base relative">
+    <div className="w-full h-screen flex flex-col items-center bg-pink-base relative">
       {/* 背景画像 */}
       <img
         src="/kumo.png"
         alt="kumo"
-        className="w-full h-full object-cover opacity-70 absolute bottom-0 left-0"
+        className="w-full h-full object-cover opacity-90 absolute bottom-0 left-0"
       />
 
       {/* 吹き出し */}
@@ -26,12 +26,12 @@ export const Seibetsu = () => {
           <img
             src="/girl.png"
             alt="onago"
-            className="w-2/5 object-contain mt-28"
+            className="w-230 object-contain mt-40"
           />
           <img
             src="/frame1.png"
             alt="frame"
-            className="absolute top-0 left-0 w-full h-full object-contain pointer-events-none z-0"
+            className="absolute -top-10 left-0 w-full h-full object-contain pointer-events-none z-0"
           />
           <button
             className="absolute top-[77%] px-20 py-8 bg-pink-dark text-black rounded-xl font-yomogi text-3xl z-10"  // ボタンの位置を調整
@@ -46,12 +46,12 @@ export const Seibetsu = () => {
           <img
             src="/boy.png"
             alt="boy"
-            className="w-5/12 object-contain mt-12"
+            className="w-230 object-contain mt-20"
           />
           <img
             src="/frame2.png"
             alt="frame"
-            className="absolute top-0 left-0 w-full h-full object-contain pointer-events-none"
+            className="absolute -top-10 left-0 w-full h-full object-contain pointer-events-none"
           />
            <button
             className="absolute top-[77%] px-20 py-8 bg-blue-dark text-black rounded-xl font-yomogi text-3xl z-10"  // ボタンの位置を調整

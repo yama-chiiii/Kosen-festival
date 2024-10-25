@@ -120,10 +120,6 @@ export const Onna = () => {
     setCount(prevCount => (prevCount < years.length - 1 ? prevCount + 1 : prevCount));
   };
 
-
-
-
-
   const handleMouseEnter = (icon: IconKey, event: React.MouseEvent<HTMLImageElement>) => {
     if (count === years.length - 1) return;
 
@@ -142,6 +138,14 @@ export const Onna = () => {
   const renderHearts = (count: number) => {
     const validCount = Math.max(count, 0);  // countが負の値の場合、0に制限する
     return '♥'.repeat(validCount) + '♡'.repeat(10 - validCount);
+  };
+
+  const getResult = () => {
+    if (yami >= 7 && seiseki <= 4) return 'Jirai';
+    if (riajuu <= 5 && yami <= 7) return 'Wotaku_girl';
+    if (riajuu >= 7 && yami >= 5) return 'Gal';
+    if (seiseki <= 2) return 'Riunen';
+    return 'Default_girl';
   };
 
   interface StatusProps {
@@ -221,7 +225,7 @@ export const Onna = () => {
           <div className='absolute bottom-100 left-220'>
             <button
               className='w-120 h-40 p-8 bg-pink-300 text-white text-xl rounded shadow-lg hover:bg-pink-400 transition z-10'
-              onClick={() => navigate('/sotugyou')}
+              onClick={() => navigate(`/sotugyou?resultType=${getResult()}`)}
             >
               卒業
             </button>

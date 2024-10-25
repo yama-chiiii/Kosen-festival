@@ -1,18 +1,37 @@
-import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
-export const KekkaG = () => {
-  const navigate = useNavigate() // ページ遷移用のフック
+export const Kekka = () => {
+  const navigate = useNavigate();
+  const { resultType = 'Default_girl' } = useParams();
+
+  // 条件に基づいて表示テキストと画像パスを決定
+  const getResultText = () => {
+    switch (resultType) {
+      case 'Jirai':
+        return { title: '地雷高専生', description: 'じらいじょしです', imagePath: '/zirai.png' };
+      case 'Wotaku_girl':
+        return { title: 'ヲタク女子高専生', description: 'をたくです', imagePath: '/wotaku_girl.png' };
+      case 'Gal':
+        return { title: 'ギャル高専生', description: 'ぎゃう', imagePath: '/gal_girl.png' };
+      case 'Riunen':
+        return { title: '留年生', description: 'りうねん', imagePath: '/riunen.png' };
+      default:
+        return { title: '大学生風高専生', description: 'でふぉです', imagePath: '/default_girl.png' };
+    }
+  };
+
+  const { title, description, imagePath } = getResultText();
 
   useEffect(() => {
-    // スクロールを禁止する
-    document.body.style.overflow = 'hidden'
+    document.body.style.overflow = 'hidden';
 
-    // コンポーネントがアンマウントされた時にスクロールを元に戻す
     return () => {
-      document.body.style.overflow = 'auto'
-    }
-  }, [])
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
+
+  console.log("Result Type:", resultType); // デバッグ用
 
   return (
     <div className='w-full h-screen flex bg-pink-base relative'>
@@ -25,22 +44,22 @@ export const KekkaG = () => {
         src='/flour.png'
         alt='hana'
         className='w-full z-0 absolute bottom-0 left-0 opacity-60'
-      ></img>
+      />
       <div className='w-4/12 h-screen flex flex-row z-10'>
         <img
-          src='/default_girl.png'
-          alt='onago'
-          className='w-2/3 h-auto ml-160 mt-100'
-        ></img>
+          src={imagePath}
+          alt='result_image'
+          className='w-auto h-full ml-160 mt-100'
+        />
       </div>
       <div className='flex w-1/12 h-auto flex-col-reverse mb-12'>
         <button
-          className=' bg-pink-300 p-12 text-white text-xl rounded shadow-lg hover:bg-pink-400 transition z-10'
+          className='bg-pink-300 p-12 text-white text-xl rounded shadow-lg hover:bg-pink-400 transition z-10'
           onClick={() => navigate('/kisekae')}
         >
           きせかえ
         </button>
-        </div>
+      </div>
       <div className='w-6/12 h-screen flex-col relative'>
         <div className='w-full h-2/3 flex justify-center z-10'>
           <div className='w-1/2 h-300 mt-140 flex justify-center bg-white'>
@@ -50,12 +69,12 @@ export const KekkaG = () => {
               </p>
               <img
                 src='/default_gitlItem.png'
-                alt='haguruma'
+                alt='default_gitlItem'
                 className='w-1/2 h-auto mt-32 ml-30'
-              ></img>
+              />
             </div>
             <div className='w-1/2 flex justify-start items-center text-xl font-yomogi'>
-              <p>ぎゃう</p>
+              <p>{description}</p>
             </div>
           </div>
         </div>
@@ -64,10 +83,10 @@ export const KekkaG = () => {
             src='/haguruma.png'
             alt='haguruma'
             className='w-auto h-full'
-          ></img>
+          />
           <div className='absolute inset-0 flex justify-center items-center z-20'>
             <p className='text-center text-black text-4xl font-yomogi mt-80 whitespace-pre-line'>
-              大学生風高専生
+              {title}
               <br />
               完成!
             </p>
@@ -75,5 +94,5 @@ export const KekkaG = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
