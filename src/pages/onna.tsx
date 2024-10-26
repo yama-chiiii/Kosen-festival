@@ -71,7 +71,7 @@ export const Onna = () => {
         break;
       case 'icon3':
         setRiajuu(prev => Math.min(Math.max(prev - 1, 0), 10));
-        setSeiseki(prev => Math.min(Math.max(prev + 3, 0), 10));
+        setSeiseki(prev => Math.min(Math.max(prev + 2, 0), 10));
         break;
       case 'icon4':
         setRiajuu(prev => Math.min(Math.max(prev + 3, 0), 10));
@@ -204,7 +204,7 @@ export const Onna = () => {
         {count === years.length - 1 && (
           <div className='absolute bottom-100 left-220'>
             <button
-              className='w-120 h-40 p-8 bg-pink-300 text-white text-xl rounded shadow-lg hover:bg-pink-400 transition z-10'
+              className='w-120 h-40 p-8 bg-pink-300 text-white text-xl rounded shadow-lg hover:bg-pink-400 transition z-10 font-yomogi'
               onClick={() => navigate(`/sotugyou?resultType=${getResult()}`)}
             >
               卒業
