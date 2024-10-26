@@ -29,6 +29,9 @@ export const Kansei = () => {
           </div>
         ))}
       </div>
+      <div className='w-2/3'>
+        <p>かんせい！</p>
+      </div>
     </div>
   );
 };
