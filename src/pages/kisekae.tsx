@@ -20,7 +20,7 @@ export const Kisekae = () => {
   const navigate = useNavigate()
   const [selectedItems, setSelectedItems] = useState<Item[]>([])
 
-  const yOffset = 1000 // Y座標の調整分
+  const yOffset = 830 // Y座標の調整分
 
   // 装飾アイテムの追加
   const addItem = (src: string) => {
@@ -30,7 +30,7 @@ export const Kisekae = () => {
         id: Math.random().toString(),
         src,
         x: 200,
-        y: -860, // 初期位置でKisekae内の調整を考慮
+        y: -720, // 初期位置でKisekae内の調整を考慮
         width: 100,
         height: 100,
       },
@@ -53,8 +53,7 @@ export const Kisekae = () => {
         alt='kumo'
         className='w-full z-0 absolute bottom-0 left-0'
       />
-
-      <div className='w-1/3 h-screen z-10 relative'>
+      <div className='w-1/3 h-screen z-0 relative'>
         <img
           src={imagePath}
           alt='onago'
@@ -85,12 +84,12 @@ export const Kisekae = () => {
                 }
                 setSelectedItems(updatedItems)
               }}
-              style={{ zIndex: 10, position: 'absolute' }}
+              className='absolute z-20'
             >
               <img
                 src={item.src}
                 alt='item'
-                style={{ width: '100%', height: '100%' }}
+                style={{ width: '100%', height: '100%', pointerEvents: 'auto' }}
               />
             </CustomResizableBox>
           </CustomDraggable>

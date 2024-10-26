@@ -1,7 +1,7 @@
-import { useAudio } from './AudioContext'
+import { useAudio } from './AudioContext';
 
 export const Audio = () => {
-  const { isPlaying, handlePlay, handleStop } = useAudio()
+  const { isPlaying, handlePlay, handleStop } = useAudio();
 
   return (
     <div className="w-auto h-64 flex justify-center bg-transparent">
@@ -22,5 +22,5 @@ export const Audio = () => {
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
