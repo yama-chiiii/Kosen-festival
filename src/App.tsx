@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Route, BrowserRouter as Router, Routes, useNavigate } from 'react-router-dom';
 import { Audio } from './pages/Audio';
 import { AudioProvider } from './pages/AudioContext';
+import { Kansei } from './pages/kansei';
 import { Kekka } from './pages/kekka';
 import { Kisekae } from './pages/kisekae';
 import { Onna } from './pages/onna';
@@ -94,6 +95,7 @@ const App: React.FC = () => {
             <Route path="/sotugyou" element={<Sotugyou />} />
             <Route path="/kekka/:resultType" element={<Kekka />} />
             <Route path="/kisekae" element={<Kisekae />} />
+            <Route path="/kansei" element={<Kansei />} />
           </Routes>
         </div>
       </Router>

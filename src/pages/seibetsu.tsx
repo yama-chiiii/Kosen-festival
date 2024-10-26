@@ -34,14 +34,12 @@ export const Seibetsu = () => {
             className="absolute -top-10 left-0 w-full h-full object-contain pointer-events-none z-0"
           />
           <button
-            className="absolute top-[77%] px-20 py-8 bg-pink-dark text-black rounded-xl font-yomogi text-3xl z-10"  // ボタンの位置を調整
+            className="absolute top-[77%] px-20 py-8 bg-pink-dark text-black rounded-xl font-yomogi text-3xl z-10 hover:bg-pink-400"  // ボタンの位置を調整
             onClick={() => navigate('/onna')}
           >
             入学
           </button>
         </div>
-
-        {/* 男の子 */}
         <div className="relative flex flex-col justify-center items-center w-1/2">
           <img
             src="/boy.png"
@@ -54,7 +52,7 @@ export const Seibetsu = () => {
             className="absolute -top-10 left-0 w-full h-full object-contain pointer-events-none"
           />
            <button
-            className="absolute top-[77%] px-20 py-8 bg-blue-dark text-black rounded-xl font-yomogi text-3xl z-10"  // ボタンの位置を調整
+            className="absolute top-[77%] px-20 py-8 bg-blue-dark text-black rounded-xl font-yomogi text-3xl z-10 hover:bg-blue-400"  // ボタンの位置を調整
             onClick={() => navigate('/otoko')}
           >
             入学

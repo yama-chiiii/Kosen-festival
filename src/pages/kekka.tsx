@@ -55,7 +55,7 @@ export const Kekka = () => {
       <div className='flex w-1/12 h-auto flex-col-reverse mb-12'>
         <button
           className='bg-pink-300 p-12 text-white text-xl rounded shadow-lg hover:bg-pink-400 transition z-10'
-          onClick={() => navigate('/kisekae')}
+          onClick={() => navigate('/kisekae', { state: { imagePath } })}
         >
           きせかえ
         </button>
