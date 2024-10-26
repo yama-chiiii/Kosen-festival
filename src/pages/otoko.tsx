@@ -170,13 +170,13 @@ export const Otoko = () => {
         <img
           src='/serifu2.png'
           alt='serifu'
-          className='w-280 h-auto  z-index 1 potision:relative; ml-350 -mt-70'
+          className='w-280 h-auto  z-index 1 potision:relative; ml-240 -mt-70'
         />
         <div className='w-1/3 h-auto flex items-center '>
           <img
             src='/boy.png'
             alt='boy'
-            className='w-460 h-auto object-contain potision:absolute -mt-100 ml-200'
+            className='w-460 h-auto object-contain potision:absolute -mt-45 ml-280'
           />
         </div>
       </div>

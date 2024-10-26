@@ -11,10 +11,10 @@ const Tooltip: React.FC<TooltipProps> = ({ hoveredIcon, tooltipPosition, iconInf
 
   return (
     <div
-      className='px-12 h-auto absolute p-4 bg-yellow-200 rounded-lg shadow-lg'
+      className='absolute p-4 bg-pink-200 rounded-lg shadow-lg w-180'
       style={{ top: `${tooltipPosition.top}px`, left: `${tooltipPosition.left}px`, zIndex: 9999 }}
     >
-      <p className='text-lg font-yomogi'>{iconInfo[hoveredIcon]}</p>
+      <p className='text-lg font-yomogi font-bold'>{iconInfo[hoveredIcon]}</p>
     </div>
   );
 };
