@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
+
 export const Kekka = () => {
   const navigate = useNavigate();
   const { resultType = 'Default_girl' } = useParams();
