@@ -33,13 +33,13 @@ export const Otoko = () => {
 
   // アイコンごとのセリフ
   const serifuMap: Record<IconKey, string> = {
-    icon1: "勉強頑張ろう！",
+    icon1: "勉強頑張ってる男子はモテるよ(たぶん)",
     icon2: "運動部は元気が一番！",
-    icon3: "文化部も大切だよ！",
+    icon3: "文化部にも人権はある！",
     icon4: "恋愛は慎重にね。",
     icon5: "いけないことしてない？",
-    icon6: "美容は大事！",
-    icon7: "インスタ映えだいじ",
+    icon6: "男子も美容に気をつかおう！",
+    icon7: "女子が映える写真撮ってあげられる？",
     icon8: "結局もどってきちゃうんだよね",
   };
 
@@ -56,7 +56,7 @@ export const Otoko = () => {
   };
 
   useEffect(() => {
-    setCurrentSerifu("初めまして！");
+    setCurrentSerifu("よろしく！");
   }, []);
 
   const handleClick = (icon: IconKey) => {
@@ -64,33 +64,36 @@ export const Otoko = () => {
 
     switch (icon) {
       case 'icon1':
-        setSeiseki(prev => Math.min(prev + 1, 10));
+        setSeiseki(prev => Math.min(Math.max(prev + 3, 0), 10));
+        setYami(prev => Math.min(Math.max(prev - 1, 0), 10));
         break;
       case 'icon2':
-        setRiajuu(prev => Math.min(prev + 1, 10));
+        setRiajuu(prev => Math.min(Math.max(prev + 1, 0), 10));
+        setYami(prev => Math.min(Math.max(prev + 1, 0), 10));
         break;
       case 'icon3':
-        setSeiseki(prev => Math.min(prev + 1, 10));
+        setRiajuu(prev => Math.min(Math.max(prev - 1, 0), 10));
+        setSeiseki(prev => Math.min(Math.max(prev + 3, 0), 10));
         break;
       case 'icon4':
-        setRiajuu(prev => Math.min(prev + 2, 10));
-        setYami(prev => Math.min(prev + 1, 10));
+        setRiajuu(prev => Math.min(Math.max(prev + 3, 0), 10));
+        setYami(prev => Math.min(Math.max(prev - 1, 0), 10));
         break;
       case 'icon5':
-        setYami(prev => Math.min(prev + 1, 10));
-        setSeiseki(prev => Math.max(prev - 2, 0));
+        setRiajuu(prev => Math.min(Math.max(prev + 3, 0), 10));
+        setSeiseki(prev => Math.min(Math.max(prev - 1, 0), 10));
         break;
       case 'icon6':
-        setRiajuu(prev => Math.min(prev + 1, 10));
-        setYami(prev => Math.max(prev - 1, 0));
+        setSeiseki(prev => Math.min(Math.max(prev - 1, 0), 10));
+        setYami(prev => Math.min(Math.max(prev + 3, 0), 10));
         break;
       case 'icon7':
-        setRiajuu(prev => Math.min(prev + 1, 10));
-        setSeiseki(prev => Math.max(prev - 1, 0));
+        setRiajuu(prev => Math.min(Math.max(prev - 1, 0), 10));
+        setYami(prev => Math.min(Math.max(prev + 3, 0), 10));
         break;
       case 'icon8':
-        setYami(prev => Math.min(prev + 1, 10));
-        setSeiseki(prev => Math.max(prev - 1, 0));
+        setRiajuu(prev => Math.min(Math.max(prev + 1, 0), 10));
+        setSeiseki(prev => Math.min(Math.max(prev + 1, 0), 10));
         break;
     }
     setCount((prevCount) => (prevCount < years.length - 1 ? prevCount + 1 : prevCount));
@@ -135,14 +138,14 @@ export const Otoko = () => {
 
         <Serifu currentSerifu={currentSerifu} />
         <img
-          src='/fukidasi2.png'
+          src='/serifu2.png'
           alt='serifu'
-          className='w-280 h-auto ml-200 -mt-12 object-cover'
+          className='w-280 h-auto ml-300 -mt-2 z-index 1 object-cover'
         />
-        <div className='w-1/2 h-auto ml-150 -mt-48 flex items-center'>
-          <img
-            src='/girl.png'
-            alt='girl'
+        <div className='w-1/2 h-2/4 ml-150 -mt-48  flex items-center'>
+          <img 
+            src='/boy.png'
+            alt='boy'
             className='w-460 h-auto object-cover'
           />
         </div>
@@ -167,7 +170,7 @@ export const Otoko = () => {
         {count === years.length - 1 && (
           <div className='absolute bottom-10 left-300'>
             <button
-              className='px-6 py-3 bg-green-500 text-white text-xl rounded-full shadow-lg hover:bg-green-700 transition'
+              className='px-11 py-5 bg-green-500 text-white text-4xl rounded-full shadow-lg hover:bg-green-700 transition'
               onClick={() => navigate('/sotugyou')}
             >
               卒業
@@ -181,4 +184,3 @@ export const Otoko = () => {
     </div>
   );
 };
-
