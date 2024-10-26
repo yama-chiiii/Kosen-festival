@@ -17,6 +17,14 @@ export const Kekka = () => {
         return { title: 'ギャル高専生', description: 'ぎゃう', imagePath: '/gal_girl.png' };
       case 'Riunen':
         return { title: '留年生', description: 'りうねん', imagePath: '/riunen.png' };
+      case 'majime':
+        return { title: '真面目系高専生', description: 'まじめだんしです', imagePath: '/mazime_boy.png'};
+      case 'Wotaku_boy':
+        return { title: 'ヲタク男子高専生', description: 'めがねかけてる高専生は8割なにかのオタクそのため人権はあるし、なんならクラスで無双してたりするしかし社会にでたときに高専とのギャップにやられることも多い<br/>口癖は「え、 君もそのゲームやってんのwwどゅふwこんど語ろうよwちなみに語りだすとながいよ？ww」', imagePath: '/wotaku_boy.png'};
+      case 'youkya':
+        return { title: '陽キャ系高専生', description: 'ようきゃです', imagePath: '/gal_boy.png'};
+      case 'Default_boy' :
+        return { title: '大学生風高専生', description: 'でふぉです', imagePath: '/default_boy.png'};
       default:
         return { title: '大学生風高専生', description: 'でふぉです', imagePath: '/default_girl.png' };
     }
@@ -64,18 +72,20 @@ export const Kekka = () => {
       <div className='w-6/12 h-screen flex-col relative'>
         <div className='w-full h-2/3 flex justify-center z-10'>
           <div className='w-1/2 h-300 mt-140 flex justify-center bg-white'>
-            <div className='w-1/2 flex flex-col ml-20'>
-              <p className='mt-20 ml-12 text-2xl font-yomogi'>
+            <div className='w-full flex flex-col ml-20'>
+              <p className='mt-20  ml-40 text-2xl font-yomogi'>
                 アイテムゲット！
               </p>
-              <img
+            </div>
+            <div className='w-300 mt-100 -ml-300 flex flex-row'>
+            <img
                 src='/default_gitlItem.png'
                 alt='default_gitlItem'
-                className='w-1/2 h-auto mt-32 ml-30'
+                className='w-1/3 h-auto object-contain -mt-40 -ml-10'
               />
-            </div>
-            <div className='w-1/2 flex justify-start items-center text-xl font-yomogi'>
+            <div className='w-1/2 flex justify-start items-center text-xl font-yomogi ml-20 -mt-30'>
               <p>{description}</p>
+            </div>
             </div>
           </div>
         </div>
