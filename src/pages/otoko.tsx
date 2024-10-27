@@ -44,14 +44,14 @@ export const Otoko = () => {
 
   // アイコンごとのツールチップ表示情報
   const tooltipInfo: Record<IconKey, string> = {
-    icon1: "これは勉強アイコンです。",
-    icon2: "これは運動部アイコンです。",
-    icon3: "これは文化部アイコンです。",
-    icon4: "これは恋愛アイコンです。",
-    icon5: "これはいけないことアイコンです♡",
-    icon6: "これは美容アイコンです。",
-    icon7: "これはSNS(Twitter)アイコンです。",
-    icon8: "これはSNS(Instagram)アイコンです。",
+    icon1: "勉強。",
+    icon2: "部活(運動部)",
+    icon3: "部活(文化部)",
+    icon4: "恋愛",
+    icon5: "いけないこと♡",
+    icon6: "美容",
+    icon7: "Instagram",
+    icon8: "Twitter",
   };
 
   useEffect(() => {
@@ -110,7 +110,7 @@ export const Otoko = () => {
   const handleMouseLeave = () => {
     setHoveredIcon(null);
     setTooltipPosition(null);
-    setCurrentSerifu("デフォルトのセリフです。");
+    setCurrentSerifu("よろしく！");
   };
 
   const renderHearts = (count: number) => {

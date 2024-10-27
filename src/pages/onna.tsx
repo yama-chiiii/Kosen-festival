@@ -50,7 +50,7 @@ export const Onna = () => {
     icon5: "いけないこと♡",
     icon6: "美容",
     icon7: "Instagram",
-    icon8: "死臭と腐臭が漂う場所",
+    icon8: "Twitter",
   };
 
   useEffect(() => {
@@ -119,7 +119,8 @@ export const Onna = () => {
     return '♥'.repeat(validCount) + '♡'.repeat(10 - validCount);
   };
 
-  const getResult = () => {
+  const
+    getResult = () => {
     if (seiseki <= 0) return 'Riunen';  // 5%
     if (yami >= 7 && seiseki <= 4) return 'Jirai';  // 15%
     if (riajuu >= 7 && yami <= 5) return 'Gal';  // 15%
@@ -204,7 +205,7 @@ export const Onna = () => {
         {count === years.length - 1 && (
           <div className='absolute bottom-100 left-220'>
             <button
-              className='w-120 h-40 p-8 bg-pink-300 text-white text-xl rounded shadow-lg hover:bg-pink-400 transition z-10 font-yomogi'
+              className='px-11 py-5 bg-pink-300 text-white text-4xl rounded-2xl shadow-lg hover:bg-pink-400 transition font-yomogi'
               onClick={() => navigate(`/sotugyou?resultType=${getResult()}`)}
             >
               卒業

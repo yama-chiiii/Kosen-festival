@@ -10,6 +10,10 @@ interface CustomResizableBoxProps extends Omit<ResizableBoxProps, 'children'> {
   height: number;
   lockAspectRatio?: boolean;
   onResizeStop?: ResizableBoxProps['onResizeStop'];
+  onClick?: () => void; // onClickを追加
+  tabIndex?: number;
+  minConstraints?: [number, number]; // 最小サイズ制約
+  maxConstraints?: [number, number]; // 最大サイズ制約
 }
 
 const CustomDraggable = forwardRef<HTMLDivElement, React.ComponentProps<typeof Draggable>>((props, ref) => {
@@ -26,13 +30,17 @@ const CustomDraggable = forwardRef<HTMLDivElement, React.ComponentProps<typeof D
 CustomDraggable.displayName = 'CustomDraggable';
 
 const CustomResizableBox = forwardRef<HTMLDivElement, CustomResizableBoxProps>(
-  ({ children, width, height, lockAspectRatio, onResizeStop, ...props }, ref) => (
+  ({ children, width, height, lockAspectRatio, onResizeStop,　minConstraints, maxConstraints, ...props }, ref) => (
     <ResizableBox
-      width={width}
-      height={height}
-      lockAspectRatio={lockAspectRatio}
-      onResizeStop={onResizeStop}
+    width={width}
+    height={height}
+    lockAspectRatio={lockAspectRatio}
+    onResizeStop={onResizeStop}
+    minConstraints={minConstraints} // 最小サイズ制約を適用
+    maxConstraints={maxConstraints} // 最大サイズ制約を適用
+
       {...props}
+
     >
       <div ref={ref}>{children}</div>
     </ResizableBox>
