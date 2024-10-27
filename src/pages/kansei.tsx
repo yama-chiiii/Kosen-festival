@@ -1,16 +1,25 @@
 import { Key } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export const Kansei = () => {
-  const location = useLocation();
-  const { selectedItems = [], imagePath = '/default_girl.png' } = location.state || {};
+  const location = useLocation()
+  const navigate = useNavigate()
+  const { selectedItems = [], imagePath = '/default_girl.png' } = location.state || {}
 
   return (
-    <div className='w-full h-screen flex bg-pink-base relative'>
+    <div className='w-full h-screen overflow-hidden flex flex-col items-center justify-center bg-pink-base relative'>
+      {/* 背景画像 */}
       <img src='/kumo.png' alt='kumo' className='w-full z-0 absolute bottom-0 left-0 opacity-70' />
 
-      <div className='w-1/3 h-screen z-10 relative'>
-        <img src={imagePath} alt='onago' className='w-2/3 h-auto ml-160 mt-100' style={{ zIndex: 1, position: 'relative' }} />
+      {/* かんせい！メッセージ */}
+      <div className='text-center mb-8 z-10 mt-52'>
+        <h1 className='text-5xl font-bold text-pink-600 mb-4 font-yomogi'>かんせい！</h1>
+        <p className='text-2xl text-gray-700 font-yomogi'>あそんでくれてありがとう！</p>
+      </div>
+
+      {/* メインキャラクターと装飾アイテム */}
+      <div className='w-1/3 h-screen z-10 relative flex items-center justify-center'>
+        <img src={imagePath} alt='onago' className='w-2/3 h-auto relative' style={{ zIndex: 1 }} />
 
         {/* 装飾アイテムを指定位置に配置 */}
         {selectedItems.map((item: { id: Key | null | undefined; x: any; y: any; width: any; height: any; src: string | undefined; }) => (
@@ -29,9 +38,14 @@ export const Kansei = () => {
           </div>
         ))}
       </div>
-      <div className='w-2/3'>
-        <p>かんせい！</p>
-      </div>
+
+      {/* ホームにもどるボタン */}
+      <button
+        onClick={() => navigate('/')}
+        className='fixed bottom-8 right-8 bg-pink-300 text-white text-2xl font-bold px-6 py-3 rounded-full shadow-lg hover:bg-pink-400 transition duration-300 font-yomogi z-10'
+      >
+        ホームにもどる
+      </button>
     </div>
   );
 };
