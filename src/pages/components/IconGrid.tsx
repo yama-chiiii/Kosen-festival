@@ -15,12 +15,13 @@ const IconGrid: React.FC<IconGridProps> = ({ handleClick, handleMouseEnter, hand
   return (
     <div>
       <div className="flex flex-row justify-around mb-32 mt-12">
+        
         {iconsTopRow.map((icon) => (
           <img
             key={icon}
             src={`/${icon}.png`}
             alt={icon}
-            className='w-80 h-auto cursor-pointer'
+            className='w-80 h-auto cursor-pointer bg-pink-200 p-5 rounded'
             onClick={() => handleClick(icon)}
             onMouseEnter={(e) => handleMouseEnter(icon, e)}
             onMouseLeave={handleMouseLeave}
@@ -33,7 +34,7 @@ const IconGrid: React.FC<IconGridProps> = ({ handleClick, handleMouseEnter, hand
             key={icon}
             src={`/${icon}.png`}
             alt={icon}
-            className='w-auto h-80 cursor-pointer'
+            className='w-auto h-80 cursor-pointer bg-pink-200 p-5 rounded'
             onClick={() => handleClick(icon)}
             onMouseEnter={(e) => handleMouseEnter(icon, e)}
             onMouseLeave={handleMouseLeave}

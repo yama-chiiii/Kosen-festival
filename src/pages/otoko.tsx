@@ -44,14 +44,14 @@ export const Otoko = () => {
 
   // アイコンごとのツールチップ表示情報
   const tooltipInfo: Record<IconKey, string> = {
-    icon1: "これは勉強アイコンです。",
-    icon2: "これは運動部アイコンです。",
-    icon3: "これは文化部アイコンです。",
-    icon4: "これは恋愛アイコンです。",
-    icon5: "これはいけないことアイコンです♡",
-    icon6: "これは美容アイコンです。",
-    icon7: "これはSNS(Twitter)アイコンです。",
-    icon8: "これはSNS(Instagram)アイコンです。",
+    icon1: "勉強する",
+    icon2: "運動部で活動",
+    icon3: "文化部で活動",
+    icon4: "恋愛する♡",
+    icon5: "いけないことをする",
+    icon6: "美容に気をつかう",
+    icon7: "Instagramでストーリーをだす",
+    icon8: "Twitterでつぶやく",
   };
 
   useEffect(() => {
@@ -168,7 +168,7 @@ export const Otoko = () => {
 
         <Serifu currentSerifu={currentSerifu} />
         <img
-          src='/serifu2.png'
+          src='/serifu3.png'
           alt='serifu'
           className='w-280 h-auto  z-index 1 potision:relative; ml-240 -mt-70'
         />
@@ -184,23 +184,26 @@ export const Otoko = () => {
       <div className='w-1/2 h-screen z-20 relative '>
         <div className='relative ml-30'>
           <img
-            src='/status.png'
+            src='/status2.png'
             alt='status'
             className='w-480 h-auto object-cover '
           />
           <Status riajuu={riajuu} seiseki={seiseki} yami={yami} renderHearts={renderHearts} />
         </div>
-        <div className='w-3/4 h-auto flex flex-col px-20 py-20 bg-white ml-35'>
+        <div className='w-5/6 h-auto'>
+          <img src='/cat.png' alt='cat' className='w-10/12 h-auto absolute ml-3 -mt-42'/>
+        <div className='w-5/6 h-auto flex flex-col px-20 py-20  ml-45 mt-30 relative'>
           <IconGrid
             handleClick={handleClick}
             handleMouseEnter={handleMouseEnter}
             handleMouseLeave={handleMouseLeave}
           />
         </div>
+        </div>
         {count === years.length - 1 && (
-          <div className='absolute bottom-30 left-230'>
+          <div className='absolute bottom-10 left-230'>
             <button
-              className='px-11 py-5 bg-blue-300 text-white text-4xl rounded-2xl shadow-lg hover:bg-blue-400 transition font-yomogi'
+              className='px-11 py-5 mt-15 bg-blue-300 text-white text-4xl rounded-2xl shadow-lg hover:bg-blue-400 transition font-yomogi'
               onClick={() => navigate(`/sotugyou?resultType=${getResult()}`)}
             >
               卒業
