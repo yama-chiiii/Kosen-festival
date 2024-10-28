@@ -70,46 +70,53 @@ export const Onna = () => {
   }, [])
 
   const handleClick = (icon: IconKey) => {
-    if (count === years.length - 1) return
+    if (count === years.length - 1) return;
 
     switch (icon) {
       case 'icon1':
-        setSeiseki((prev) => Math.min(Math.max(prev + 3, 0), 10))
-        setYami((prev) => Math.min(Math.max(prev + 1, 0), 10))
-        break
+        setSeiseki(prevSeiseki => Math.min(prevSeiseki + 3, 10));
+        setYami(prevYami => Math.min(prevYami + 1, 10));
+        break;
+
       case 'icon2':
-        setRiajuu((prev) => Math.min(Math.max(prev + 1, 0), 10))
-        setYami((prev) => Math.min(Math.max(prev + 1, 0), 10))
-        break
+        setRiajuu(prevRiajuu => Math.min(prevRiajuu + 2, 10));
+        break;
+
       case 'icon3':
-        setRiajuu((prev) => Math.min(Math.max(prev - 1, 0), 10))
-        setSeiseki((prev) => Math.min(Math.max(prev + 2, 0), 10))
-        break
+        setRiajuu(prevRiajuu => Math.max(prevRiajuu - 1, 0));
+        setSeiseki(prevSeiseki => Math.min(prevSeiseki + 1, 10));
+        break;
+
       case 'icon4':
-        setRiajuu((prev) => Math.min(Math.max(prev + 3, 0), 10))
-        setYami((prev) => Math.min(Math.max(prev - 1, 0), 10))
-        break
+        setRiajuu(prevRiajuu => Math.min(prevRiajuu + 3, 10));
+        setYami(prevYami => Math.min(prevYami + 1, 10));
+        break;
+
       case 'icon5':
-        setRiajuu((prev) => Math.min(Math.max(prev + 3, 0), 10))
-        setSeiseki((prev) => Math.min(Math.max(prev - 1, 0), 10))
-        break
+        setSeiseki(prevSeiseki => Math.max(prevSeiseki - 3, 0));
+        setYami(prevYami => Math.min(prevYami + 1, 10));
+        break;
+
       case 'icon6':
-        setSeiseki((prev) => Math.min(Math.max(prev - 3, 0), 10))
-        setYami((prev) => Math.min(Math.max(prev + 2, 0), 10))
-        break
+        setRiajuu(prevRiajuu => Math.min(prevRiajuu + 2, 10));
+        setSeiseki(prevSeiseki => Math.max(prevSeiseki - 1, 0));
+        setYami(prevYami => Math.max(prevYami - 1, 0));
+        break;
+
       case 'icon7':
-        setRiajuu((prev) => Math.min(Math.max(prev - 1, 0), 10))
-        setYami((prev) => Math.min(Math.max(prev + 3, 0), 10))
-        break
+        setRiajuu(prevRiajuu => Math.min(prevRiajuu + 1, 10));
+        setSeiseki(prevSeiseki => Math.max(prevSeiseki - 1, 0));
+        break;
+
       case 'icon8':
-        setRiajuu((prev) => Math.min(Math.max(prev + 1, 0), 10))
-        setSeiseki((prev) => Math.min(Math.max(prev + 1, 0), 10))
-        break
+        setRiajuu(prevRiajuu => Math.max(prevRiajuu - 2, 0));
+        setSeiseki(prevSeiseki => Math.max(prevSeiseki - 1, 0));
+        break;
     }
-    setCount((prevCount) =>
-      prevCount < years.length - 1 ? prevCount + 1 : prevCount,
-    )
-  }
+
+    setCount(prevCount => (prevCount < years.length - 1 ? prevCount + 1 : prevCount));
+  };
+
 
   const handleMouseEnter = (
     icon: IconKey,
@@ -244,7 +251,7 @@ export const Onna = () => {
           </div>
         </div>
         {count === years.length - 1 && (
-          <div className='absolute bottom-100 left-220'>
+          <div className='w-4/5 absolute flex justify-center'>
             <button
               className='px-11 py-5 bg-pink-300 text-white text-4xl rounded-2xl shadow-lg hover:bg-pink-400 transition font-yomogi'
               onClick={() => navigate(`/sotugyou?resultType=${getResult()}`)}
