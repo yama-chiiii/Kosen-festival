@@ -142,11 +142,11 @@ export const Onna = () => {
   }
 
   const getResult = () => {
-    if (seiseki <= 0 && riajuu <= 3) return 'Riunen' // 5%
+    if (seiseki <= 0) return 'Riunen' // 5%
     if (yami >= 7 && seiseki <= 4) return 'Jirai' // 15%
     if (riajuu >= 7 && yami <= 5) return 'Gal' // 15%
-    if (riajuu <= 6 && yami <= 4) return 'Default_girl' // 25%
-    return 'Wotaku_girl' // 40%
+    if (riajuu <= 2 && seiseki >= 4) return 'Wotaku_girl' // 25%
+    return 'Default_girl' // 40%
   }
 
   interface StatusProps {

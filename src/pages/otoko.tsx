@@ -108,7 +108,7 @@ export const Otoko = () => {
         break;
 
       case 'icon8':
-        setRiajuu(prevRiajuu => Math.max(prevRiajuu - 2, 10));
+        setRiajuu(prevRiajuu => Math.max(prevRiajuu - 2, 0));
         setSeiseki(prevSeiseki => Math.max(prevSeiseki - 1, 0));
         break;
     }
@@ -141,10 +141,10 @@ export const Otoko = () => {
   }
 
   const getResult = () => {
-    if (yami <= 0 && seiseki >= 6) return 'majime'
-    if (riajuu >= 6 && yami >= 6) return 'Wotaku_boy'
-    if (riajuu >= 6 && seiseki >= 4) return 'youkya'
-    if (seiseki <= 2) return 'Riunen'
+    if (seiseki <= 0) return 'Riunen' // 5%
+    if (yami >= 5 && seiseki >= 7) return 'majime'
+    if (riajuu <= 2 && seiseki <= 4) return 'Wotaku_boy' // 25%
+    if (riajuu >= 7 && yami <= 3) return 'youkya' // 15%
     return 'Default_boy'
   }
 
