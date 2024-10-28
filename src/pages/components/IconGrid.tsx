@@ -21,7 +21,7 @@ const IconGrid: React.FC<IconGridProps> = ({ handleClick, handleMouseEnter, hand
             key={icon}
             src={`/${icon}.png`}
             alt={icon}
-            className='w-80 h-auto cursor-pointer bg-pink-200 p-5 rounded'
+            className='w-80 h-auto cursor-pointer bg-purple-200 p-5 rounded'
             onClick={() => handleClick(icon)}
             onMouseEnter={(e) => handleMouseEnter(icon, e)}
             onMouseLeave={handleMouseLeave}
@@ -34,7 +34,7 @@ const IconGrid: React.FC<IconGridProps> = ({ handleClick, handleMouseEnter, hand
             key={icon}
             src={`/${icon}.png`}
             alt={icon}
-            className='w-auto h-80 cursor-pointer bg-pink-200 p-5 rounded'
+            className='w-auto h-80 cursor-pointer bg-purple-200 p-5 rounded'
             onClick={() => handleClick(icon)}
             onMouseEnter={(e) => handleMouseEnter(icon, e)}
             onMouseLeave={handleMouseLeave}

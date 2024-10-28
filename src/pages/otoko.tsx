@@ -21,7 +21,7 @@ export const Otoko = () => {
     top: number
     left: number
   } | null>(null)
-  const [currentSerifu, setCurrentSerifu] = useState('デフォルトのセリフです。')
+  const [currentSerifu, setCurrentSerifu] = useState('きょうも元気100％！')
   const [seiseki, setSeiseki] = useState(0)
   const [riajuu, setRiajuu] = useState(0)
   const [yami, setYami] = useState(0)
@@ -74,7 +74,7 @@ export const Otoko = () => {
     switch (icon) {
       case 'icon1':
         setSeiseki((prev) => Math.min(Math.max(prev + 3, 0), 10))
-        setYami((prev) => Math.min(Math.max(prev - 1, 0), 10))
+        setYami((prev) => Math.min(Math.max(prev + 1, 0), 10))
         break
       case 'icon2':
         setRiajuu((prev) => Math.min(Math.max(prev + 1, 0), 10))
@@ -93,8 +93,8 @@ export const Otoko = () => {
         setSeiseki((prev) => Math.min(Math.max(prev - 1, 0), 10))
         break
       case 'icon6':
-        setSeiseki((prev) => Math.min(Math.max(prev - 1, 0), 10))
-        setYami((prev) => Math.min(Math.max(prev + 3, 0), 10))
+        setSeiseki((prev) => Math.min(Math.max(prev - 3, 0), 10))
+        setYami((prev) => Math.min(Math.max(prev + 2, 0), 10))
         break
       case 'icon7':
         setRiajuu((prev) => Math.min(Math.max(prev - 1, 0), 10))
@@ -216,7 +216,7 @@ export const Otoko = () => {
       <div className='w-1/2 h-screen z-20 relative '>
         <div className='relative ml-30'>
           <img
-            src='/status2.png'
+            src='/bluestatus.png'
             alt='status'
             className='w-480 h-auto object-cover '
           />
@@ -229,7 +229,7 @@ export const Otoko = () => {
         </div>
         <div className='w-5/6 h-auto'>
           <img
-            src='/cat.png'
+            src='/blueframe.png'
             alt='cat'
             className='w-10/12 h-auto absolute ml-3 -mt-42'
           />
