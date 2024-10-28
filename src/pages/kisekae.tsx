@@ -21,7 +21,8 @@ export const Kisekae = () => {
   const [selectedItems, setSelectedItems] = useState<Item[]>([])
   const [selectedItemId, setSelectedItemId] = useState<string | null>(null)
 
-  const yOffset = 1000 // Y座標の調整分
+  const xOffset = -80 // Y座標の調整分
+  const yOffset = 720 // Y座標の調整分
 
   // 装飾アイテムの追加
   const addItem = (src: string) => {
@@ -75,6 +76,7 @@ export const Kisekae = () => {
   const handleSave = () => {
     const adjustedItems = selectedItems.map((item) => ({
       ...item,
+      x: item.x + xOffset,
       y: item.y + yOffset, // Y座標をKansei向けに調整
     }))
     navigate('/kansei', { state: { selectedItems: adjustedItems, imagePath } })
