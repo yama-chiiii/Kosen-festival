@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Route, BrowserRouter as Router, Routes, useNavigate } from 'react-router-dom';
+import Asobikata from './pages/Asobikata';
 import { Audio } from './pages/Audio';
 import { AudioProvider } from './pages/AudioContext';
 import { Kansei } from './pages/kansei';
@@ -14,33 +15,29 @@ const Home: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className='w-full h-screen bg-yellow-100 relative'>
-      <div className={`flex h-full justify-center`}>
-        <img
-          src='/hyousi.png'
-          alt='Hyousi'
-          className='w-auto h-full object-cover'
-        />
-        <div className='w-full h-auto absolute flex justify-end font-yomogi inset-0 z-10'>
+    <div className="w-full h-screen bg-yellow-100 relative">
+      <div className="flex h-full justify-center relative">
+        <img src="/hyousi.png" alt="Hyousi" className="w-auto h-full object-cover" />
+        <div className="w-full h-auto absolute flex justify-end font-yomogi inset-0 z-10">
           <Audio />
         </div>
-        <div className='w-full h-auto absolute inset-0 font-yomogi'>
-          <div className='w-full h-screen flex flex-col justify-center items-center '>
-            <h1 className='mt-32 pb-32 text-4xl text-black'>
-              ときめき☆彡高専だいあり～♡
-            </h1>
-            <div className='flex justify-center items-center px-12 h-56 rounded bg-pink-300 hover:bg-pink-400 transition-colors duration-300'>
-              <button
-                className='text-3xl text-black z-10'
-                onClick={() => {
-                  navigate('/seibetsu');
-                }}
-              >
+        <div className="w-full h-auto absolute inset-0 font-yomogi">
+          <div className="w-full h-screen flex flex-col justify-center items-center">
+            <h1 className="mt-32 pb-32 text-4xl text-black">ときめき☆彡高専だいあり～♡</h1>
+            <div className="flex justify-center items-center px-12 h-56 rounded bg-pink-300 hover:bg-pink-400 transition-colors duration-300">
+              <button className="text-3xl text-black z-10" onClick={() => navigate('/seibetsu')}>
                 すたーと
               </button>
             </div>
           </div>
         </div>
+        {/* あそびかたボタンを画面下部に絶対位置で配置 */}
+        <button
+          className="text-2xl font-bold text-gray-400 hover:text-gray-500 z-20 absolute bottom-12 font-yomogi"
+          onClick={() => navigate('/asobikata')}
+        >
+          ？ あそびかた ？
+        </button>
       </div>
     </div>
   );
@@ -54,25 +51,14 @@ const App: React.FC = () => {
     const height = window.innerHeight;
     const aspectRatio = width / height;
 
-    // 横:縦の比率が1.2:1以上でないとプレイ不可
     const minAspectRatio = 1.2;
-
-    if (aspectRatio < minAspectRatio) {
-      setIsPlayable(false);
-    } else {
-      setIsPlayable(true);
-    }
+    setIsPlayable(aspectRatio >= minAspectRatio);
   };
 
   useEffect(() => {
-    // 初期チェック
     checkAspectRatio();
-    // リサイズ時のチェック
     window.addEventListener('resize', checkAspectRatio);
-
-    return () => {
-      window.removeEventListener('resize', checkAspectRatio);
-    };
+    return () => window.removeEventListener('resize', checkAspectRatio);
   }, []);
 
   return (
@@ -96,6 +82,7 @@ const App: React.FC = () => {
             <Route path="/kekka/:resultType" element={<Kekka />} />
             <Route path="/kisekae" element={<Kisekae />} />
             <Route path="/kansei" element={<Kansei />} />
+            <Route path="/asobikata" element={<Asobikata />} />
           </Routes>
         </div>
       </Router>
