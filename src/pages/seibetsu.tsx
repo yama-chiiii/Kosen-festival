@@ -52,7 +52,7 @@ export const Seibetsu = () => {
             className="absolute left-0 w-10/11 h-auto object-contain pointer-events-none z-0 mt-20"
           />
            <button
-            className="absolute top-[87%] px-20 py-8 bg-blue-dark text-black rounded-xl font-yomogi text-3xl z-10 hover:bg-blue-400"  // ボタンの位置を調整
+            className="absolute top-[86%] px-20 py-8 bg-blue-dark text-black rounded-xl font-yomogi text-3xl z-10 hover:bg-blue-400"  // ボタンの位置を調整
             onClick={() => navigate('/otoko')}
           >
             入学
