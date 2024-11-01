@@ -167,7 +167,7 @@ export const Onna = () => {
     console.log('やみ度:', yami)
 
     return (
-      <div className='absolute top-150 left-100 z-40 font-yomogi font-base text-xl'>
+      <div className='absolute top-180 left-130 z-40 font-yomogi font-base text-xl'>
         <div>
           <p>
             リア充度{' '}
@@ -223,7 +223,7 @@ export const Onna = () => {
       </div>
 
       <div className='w-1/2 h-screen z-20 mt-30 relative '>
-        <div className='relative ml-70 '>
+        <div className='relative ml-45 '>
           <img
             src='/status.png'
             alt='status'

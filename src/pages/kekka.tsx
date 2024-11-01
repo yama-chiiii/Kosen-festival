@@ -131,7 +131,7 @@ export const Kekka = () => {
         <div className='w-full h-1/3 flex -mt-100 justify-center z-10 relative'>
           <img src='/haguruma.png' alt='haguruma' className='w-auto h-full ml-100' />
           <div className='absolute inset-0 flex justify-center items-center z-20 mt-20'>
-            <p className='text-center text-black text-4xl font-yomogi mt-80 mr-140 whitespace-pre-line'>
+            <p className='text-center text-black text-4xl font-yomogi mt-80 mr-120 whitespace-pre-line'>
               {title}
               <br />
               完成!

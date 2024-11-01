@@ -34,7 +34,7 @@ export const Seibetsu = () => {
             className="absolute  left-0 w-11/12 h-auto object-contain pointer-events-none z-0 mt-20"
           />
           <button
-            className="absolute top-[77%] px-20 py-8 bg-pink-dark text-black rounded-xl font-yomogi text-3xl z-10 hover:bg-pink-400"  // ボタンの位置を調整
+            className="absolute top-[80%] px-20 py-8 bg-pink-dark text-black rounded-xl font-yomogi text-3xl z-10 hover:bg-pink-400"  // ボタンの位置を調整
             onClick={() => navigate('/onna')}
           >
             入学
@@ -49,7 +49,7 @@ export const Seibetsu = () => {
           <img
             src="/frame2.png"
             alt="frame"
-            className="absolute top-2 left-0 w-full h-full object-contain pointer-events-none"
+            className="absolute top-2 left-0 w-11/12 h-auto object-contain pointer-events-none mt-20"
           />
            <button
             className="absolute top-[77%] px-20 py-8 bg-blue-dark text-black rounded-xl font-yomogi text-3xl z-10 hover:bg-blue-400"  // ボタンの位置を調整
