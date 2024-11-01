@@ -211,13 +211,13 @@ export const Onna = () => {
         <img
           src='/serifu1.png'
           alt='serifu'
-          className='w-280 h-auto ml-300 -mt-70 z-index relative'
+          className='w-280 h-auto ml-400 -mt-70 z-index relative'
         />
         <div className='w-1/3 h-5/6  flex items-center'>
           <img
             src='/girl.png'
             alt='girl'
-            className='w-460 h-5/6 object-contain absolute -mt-100 ml-210'
+            className='w-460 h-5/6 object-contain absolute -mt-100 ml-300'
           />
         </div>
       </div>
