@@ -216,7 +216,7 @@ export const Otoko = () => {
           <img
             src='/boy.png'
             alt='boy'
-            className='w-460 h-auto object-contain potision:absolute -mt-100 ml-360'
+            className='w-460 h-auto object-contain potision:absolute -mt-50 ml-360'
           />
         </div>
       </div>
