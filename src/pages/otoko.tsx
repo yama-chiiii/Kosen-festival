@@ -166,7 +166,7 @@ export const Otoko = () => {
     console.log('やみ度:', yami)
 
     return (
-      <div className='absolute top-150 left-100 z-40 font-yomogi font-base text-xl'>
+      <div className='absolute top-160 left-130 z-40 font-yomogi font-base text-xl'>
         <div>
           <p>
             リア充度{' '}
@@ -195,9 +195,9 @@ export const Otoko = () => {
         <img
           src='/zikan.png'
           alt='zikan'
-          className='w-240 h-auto mx-4 mt-4 object-cover potision:absolute'
+          className='w-240 h-auto mx-20 mt-20 object-cover potision:absolute'
         />
-        <div className='absolute top-40 left-88 z-20 font-yomogi'>
+        <div className='absolute top-56 left-104 z-20 font-yomogi'>
           <p className='bg-yellow-100 p-2 rounded-lg text-3xl font-bold'>
             {years[count].grade}
           </p>
@@ -210,23 +210,23 @@ export const Otoko = () => {
         <img
           src='/serifu3.png'
           alt='serifu'
-          className='w-280 h-auto  z-index 1 potision:relative; ml-240 -mt-70'
+          className='w-280 h-auto  z-index 1 potision:relative; ml-340 -mt-70'
         />
         <div className='w-1/3 h-auto flex items-center '>
           <img
             src='/boy.png'
             alt='boy'
-            className='w-460 h-auto object-contain potision:absolute -mt-45 ml-280'
+            className='w-460 h-auto object-contain potision:absolute -mt-100 ml-360'
           />
         </div>
       </div>
 
-      <div className='w-1/2 h-screen z-20 relative '>
-        <div className='relative ml-30'>
+      <div className='w-1/2 h-screen mt-30 z-20 relative '>
+        <div className='relative ml-45'>
           <img
             src='/bluestatus.png'
             alt='status'
-            className='w-480 h-auto object-cover '
+            className='w-520 h-auto ml-20 object-cover '
           />
           <Status
             riajuu={riajuu}
@@ -239,7 +239,7 @@ export const Otoko = () => {
           <img
             src='/blueframe.png'
             alt='cat'
-            className='w-10/12 h-auto absolute ml-3 -mt-42'
+            className='w-10/12 h-auto absolute -mt-52'
           />
           <div className='w-5/6 h-auto flex flex-col px-20 py-20  ml-45 mt-30 relative'>
             <IconGrid
@@ -250,9 +250,9 @@ export const Otoko = () => {
           </div>
         </div>
         {count === years.length - 1 && (
-          <div className='w-4/5 absolute flex justify-center'>
+          <div className='w-3/4 ml-30 absolute flex justify-center'>
             <button
-              className='px-11 py-5 mt-60 bg-blue-300 text-white text-4xl rounded-2xl shadow-lg hover:bg-blue-400 transition font-yomogi'
+              className='w-170 h-auto px-11 py-10 mt-40 bg-blue-300 text-white text-5xl rounded-2xl shadow-lg hover:bg-blue-400 transition font-yomogi'
               onClick={() => navigate(`/sotugyou?resultType=${getResult()}`)}
             >
               卒業

@@ -229,14 +229,12 @@ export const Onna = () => {
             alt='status'
             className='w-520 h-auto object-cover ml-20'
           />
-          <div className='m-10'>
           <Status
             riajuu={riajuu}
             seiseki={seiseki}
             yami={yami}
             renderHearts={renderHearts}
           />
-          </div>
         </div>
         <div className='w-5/6 h-auto '>
           <img
