@@ -104,11 +104,11 @@ export const Kekka = () => {
         <img
           src={imagePath}
           alt='result_image'
-          className='w-auto h-full ml-160 mt-100'
+          className='w-auto h-full ml-200 mt-100 '
         />
       </div>
 
-      <div className='w-full h-screen flex-col relative'>
+      <div className='w-full h-screen mt-30 flex-col relative'>
         <div className='h-2/3 flex justify-center z-10'>
           <div className='w-full h-auto flex flex-col items-center'>
             <div className='w-1/4 h-80 mt-48 flex flex-col items-center bg-white border-4 border-pink-300 shadow-lg p-8'>
@@ -128,9 +128,9 @@ export const Kekka = () => {
             </div>
           </div>
         </div>
-        <div className='w-full h-1/3 flex justify-center z-10 relative'>
-          <img src='/haguruma.png' alt='haguruma' className='w-auto h-full' />
-          <div className='absolute inset-0 flex justify-center items-center z-20'>
+        <div className='w-full h-1/3 flex -mt-30 justify-center z-10 relative'>
+          <img src='/haguruma.png' alt='haguruma' className='w-auto h-full ml-30' />
+          <div className='absolute inset-0 flex justify-center items-center z-20 mt-20'>
             <p className='text-center text-black text-4xl font-yomogi mt-80 mr-240 whitespace-pre-line'>
               {title}
               <br />
@@ -139,7 +139,7 @@ export const Kekka = () => {
           </div>
           <div className='flex w-2/12 ml-60 h-auto flex-col-reverse mb-12'>
         <button
-          className='bg-pink-300 p-12 text-white text-xl rounded shadow-lg hover:bg-pink-400 transition z-10 font-yomogi'
+          className='bg-pink-300 p-12 text-white text-xl rounded shadow-lg hover:bg-pink-400 transition z-10 -ml-10 font-yomogi'
           onClick={() => navigate('/kisekae', { state: { imagePath, itemsPath } })}
         >
           きせかえ

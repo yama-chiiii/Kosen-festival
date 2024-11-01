@@ -222,7 +222,7 @@ export const Onna = () => {
         </div>
       </div>
 
-      <div className='w-1/2 h-screen z-20 relative '>
+      <div className='w-1/2 h-screen z-20 mt-30 relative '>
         <div className='relative ml-70'>
           <img
             src='/status.png'
