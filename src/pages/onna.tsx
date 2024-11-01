@@ -223,7 +223,7 @@ export const Onna = () => {
       </div>
 
       <div className='w-1/2 h-screen z-20 relative '>
-        <div className='relative ml-100'>
+        <div className='relative ml-70'>
           <img
             src='/status.png'
             alt='status'
@@ -253,7 +253,7 @@ export const Onna = () => {
         {count === years.length - 1 && (
           <div className='w-4/5 absolute flex justify-center'>
             <button
-              className=' mt-80 px-11 py-5 bg-pink-300 text-white text-4xl rounded-2xl shadow-lg hover:bg-pink-400 transition font-yomogi'
+              className=' mt-50 px-11 py-5 bg-pink-300 text-white text-4xl rounded-2xl shadow-lg hover:bg-pink-400 transition font-yomogi'
               onClick={() => navigate(`/sotugyou?resultType=${getResult()}`)}
             >
               卒業
