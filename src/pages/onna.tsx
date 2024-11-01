@@ -196,9 +196,9 @@ export const Onna = () => {
         <img
           src='/zikan.png'
           alt='zikan'
-          className='w-240 h-auto mx-4 mt-4 object-cover'
+          className='w-240 h-auto mx-20 mt-20 object-cover'
         />
-        <div className='absolute top-40 left-88 z-20 font-yomogi'>
+        <div className='absolute top-56 left-104 z-20 font-yomogi'>
           <p className='bg-yellow-100 p-2 rounded-lg text-3xl font-bold'>
             {years[count].grade}
           </p>
@@ -223,18 +223,20 @@ export const Onna = () => {
       </div>
 
       <div className='w-1/2 h-screen z-20 mt-30 relative '>
-        <div className='relative ml-70'>
+        <div className='relative ml-70 '>
           <img
             src='/status.png'
             alt='status'
-            className='w-480 h-auto object-cover ml-20'
+            className='w-520 h-auto object-cover ml-20'
           />
+          <div className='m-10'>
           <Status
             riajuu={riajuu}
             seiseki={seiseki}
             yami={yami}
             renderHearts={renderHearts}
           />
+          </div>
         </div>
         <div className='w-5/6 h-auto '>
           <img
@@ -251,7 +253,7 @@ export const Onna = () => {
           </div>
         </div>
         {count === years.length - 1 && (
-          <div className='w-3/4 absolute flex justify-center'>
+          <div className='w-3/4 ml-30 absolute flex justify-center'>
             <button
               className=' w-170 h-auto mt-40 px-11 py-10 bg-pink-300 text-white text-5xl rounded-2xl shadow-lg hover:bg-pink-400 transition font-yomogi'
               onClick={() => navigate(`/sotugyou?resultType=${getResult()}`)}

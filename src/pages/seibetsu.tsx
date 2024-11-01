@@ -31,7 +31,7 @@ export const Seibetsu = () => {
           <img
             src="/frame1.png"
             alt="frame"
-            className="absolute  left-0 w-full h-full object-contain pointer-events-none z-0 mt-10"
+            className="absolute  left-0 w-11/12 h-auto object-contain pointer-events-none z-0 mt-20"
           />
           <button
             className="absolute top-[77%] px-20 py-8 bg-pink-dark text-black rounded-xl font-yomogi text-3xl z-10 hover:bg-pink-400"  // ボタンの位置を調整
