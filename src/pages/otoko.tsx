@@ -252,7 +252,7 @@ export const Otoko = () => {
         {count === years.length - 1 && (
           <div className='w-4/5 absolute flex justify-center'>
             <button
-              className='px-11 py-5 mt-15 bg-blue-300 text-white text-4xl rounded-2xl shadow-lg hover:bg-blue-400 transition font-yomogi'
+              className='px-11 py-5 mt-60 bg-blue-300 text-white text-4xl rounded-2xl shadow-lg hover:bg-blue-400 transition font-yomogi'
               onClick={() => navigate(`/sotugyou?resultType=${getResult()}`)}
             >
               卒業

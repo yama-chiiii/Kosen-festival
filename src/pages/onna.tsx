@@ -227,7 +227,7 @@ export const Onna = () => {
           <img
             src='/status.png'
             alt='status'
-            className='w-480 h-auto object-cover'
+            className='w-480 h-auto object-cover ml-20'
           />
           <Status
             riajuu={riajuu}
@@ -240,7 +240,7 @@ export const Onna = () => {
           <img
             src='/cat.png'
             alt='cat'
-            className='w-10/12 h-auto absolute -mt-42'
+            className='w-10/12 h-auto absolute -mt-52'
           />
           <div className='w-5/6 h-auto flex flex-col px-20 py-20  ml-45 mt-30 relative'>
             <IconGrid
@@ -253,7 +253,7 @@ export const Onna = () => {
         {count === years.length - 1 && (
           <div className='w-4/5 absolute flex justify-center'>
             <button
-              className='px-11 py-5 bg-pink-300 text-white text-4xl rounded-2xl shadow-lg hover:bg-pink-400 transition font-yomogi'
+              className=' mt-50 px-11 py-5 bg-pink-300 text-white text-4xl rounded-2xl shadow-lg hover:bg-pink-400 transition font-yomogi'
               onClick={() => navigate(`/sotugyou?resultType=${getResult()}`)}
             >
               卒業
