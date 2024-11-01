@@ -1,14 +1,17 @@
-import { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { CustomDraggable, CustomResizableBox } from './components/CustomDraggable';
+import { useEffect, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
+import {
+  CustomDraggable,
+  CustomResizableBox,
+} from './components/CustomDraggable'
 
 interface Item {
-  id: string;
-  src: string;
-  x: number;
-  y: number;
-  width: number;
-  height: number;
+  id: string
+  src: string
+  x: number
+  y: number
+  width: number
+  height: number
 }
 
 export const Kisekae = () => {
@@ -48,15 +51,15 @@ export const Kisekae = () => {
               width: Math.max(50, item.width + increment), // 最小サイズ50を保持
               height: Math.max(50, item.height + increment),
             }
-          : item
-      )
-    );
-  };
+          : item,
+      ),
+    )
+  }
 
   const deleteItem = (itemId: string) => {
-    setSelectedItems((items) => items.filter((item) => item.id !== itemId));
-    setSelectedItemId(null);
-  };
+    setSelectedItems((items) => items.filter((item) => item.id !== itemId))
+    setSelectedItemId(null)
+  }
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -83,12 +86,22 @@ export const Kisekae = () => {
   }
 
   return (
-    <div className="w-full h-screen flex bg-pink-base relative">
-      <img src="/kumo.png" alt="kumo" className="w-full z-0 absolute bottom-0 left-0" />
+    <div className='w-full h-screen flex bg-pink-base relative'>
+      <img
+        src='/kumo.png'
+        alt='kumo'
+        className='w-full z-0 absolute bottom-0 left-0'
+      />
 
-      <div className="w-1/3 h-screen flex flex-col z-0 relative">
-        <p className="w-full flex justify-center ml-90 mt-100 font-yomogi text-2xl">この枠の中に自由に装飾をつけてね～</p>
-        <img src={imagePath} alt="onago" className="w-2/3 h-auto relative ml-160 z-0 bg-blue-100 border-4 border-red-500" />
+      <div className='w-1/3 h-screen flex flex-col z-0 relative'>
+        <p className='w-full flex justify-center ml-90 mt-100 font-yomogi text-2xl'>
+          この枠の中に自由に装飾をつけてね～
+        </p>
+        <img
+          src={imagePath}
+          alt='onago'
+          className='w-2/3 h-auto relative ml-160 z-0 bg-blue-100 border-4 border-red-500'
+        />
 
         {/* 装飾アイテムのレンダリング */}
         {selectedItems.map((item, index) => (
@@ -96,37 +109,68 @@ export const Kisekae = () => {
             key={item.id}
             defaultPosition={{ x: item.x, y: item.y }}
             onStop={(e, data) => {
-              const updatedItems = [...selectedItems];
-              updatedItems[index] = { ...item, x: data.x, y: data.y };
-              setSelectedItems(updatedItems);
+              const updatedItems = [...selectedItems]
+              updatedItems[index] = { ...item, x: data.x, y: data.y }
+              setSelectedItems(updatedItems)
+              console.log(`ID: ${item.id}, New X: ${data.x}, New Y: ${data.y}`) // 座標を表示
             }}
           >
-            <div onClick={() => setSelectedItemId(item.id)} className="relative">
+            <div
+              onClick={() => {
+                setSelectedItemId(item.id)
+                console.log(`ID: ${item.id}, X: ${item.x}, Y: ${item.y}`) // アイテム選択時に座標を表示
+              }}
+              className='relative'
+              style={{ pointerEvents: 'auto' }}
+            >
               <CustomResizableBox
                 tabIndex={0}
-                className={`absolute z-20 ${selectedItemId === item.id ? 'border border-blue-500' : ''}`}
+                className={`absolute z-20 ${
+                  selectedItemId === item.id ? 'border border-blue-500' : ''
+                }`}
                 width={item.width}
                 height={item.height}
                 lockAspectRatio
                 onResizeStop={(e, data) => {
-                  const updatedItems = [...selectedItems];
-                  updatedItems[index] = { ...item, width: data.size.width, height: data.size.height };
-                  setSelectedItems(updatedItems);
+                  const updatedItems = [...selectedItems]
+                  updatedItems[index] = {
+                    ...item,
+                    width: data.size.width,
+                    height: data.size.height,
+                  }
+                  setSelectedItems(updatedItems)
                 }}
               >
-                <img src={item.src} alt="item" style={{ width: '100%', height: '100%', pointerEvents: 'auto' }} />
+                <img
+                  src={item.src}
+                  alt='item'
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    pointerEvents: 'auto',
+                  }}
+                />
               </CustomResizableBox>
 
               {/* 選択時に表示する操作ボタン */}
               {selectedItemId === item.id && (
-                <div className="absolute -top-12 left-0 flex space-x-2">
-                  <button onClick={() => changeItemSize(item.id, 10)} className="bg-green-500 text-white p-1 rounded">
+                <div className='absolute -top-12 left-0 flex space-x-2'>
+                  <button
+                    onClick={() => changeItemSize(item.id, 10)}
+                    className='bg-green-500 text-white p-1 rounded'
+                  >
                     ＋
                   </button>
-                  <button onClick={() => changeItemSize(item.id, -10)} className="bg-red-500 text-white p-1 rounded">
+                  <button
+                    onClick={() => changeItemSize(item.id, -10)}
+                    className='bg-red-500 text-white p-1 rounded'
+                  >
                     －
                   </button>
-                  <button onClick={() => deleteItem(item.id)} className="bg-gray-500 text-white p-1 rounded">
+                  <button
+                    onClick={() => deleteItem(item.id)}
+                    className='bg-gray-500 text-white p-1 rounded'
+                  >
                     消す
                   </button>
                 </div>
