@@ -25,7 +25,7 @@ export const Kisekae = () => {
   const [selectedItemId, setSelectedItemId] = useState<string | null>(null)
 
   const xOffset = -300 // Y座標の調整分
-  const yOffset = 600 // Y座標の調整分
+  const yOffset = 100 // Y座標の調整分
 
   // 装飾アイテムの追加
   const addItem = (src: string) => {
