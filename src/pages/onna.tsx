@@ -211,13 +211,13 @@ export const Onna = () => {
         <img
           src='/serifu1.png'
           alt='serifu'
-          className='w-280 h-auto ml-400 -mt-70 z-index relative'
+          className='w-280 h-auto ml-340 -mt-70 z-index relative'
         />
         <div className='w-1/3 h-5/6  flex items-center'>
           <img
             src='/girl.png'
             alt='girl'
-            className='w-460 h-5/6 object-contain absolute -mt-100 ml-300'
+            className='w-460 h-5/6 object-contain absolute -mt-100 ml-240'
           />
         </div>
       </div>
@@ -253,7 +253,7 @@ export const Onna = () => {
         {count === years.length - 1 && (
           <div className='w-4/5 absolute flex justify-center'>
             <button
-              className=' mt-50 px-11 py-5 bg-pink-300 text-white text-4xl rounded-2xl shadow-lg hover:bg-pink-400 transition font-yomogi'
+              className=' mt-20 px-11 py-5 bg-pink-300 text-white text-4xl rounded-2xl shadow-lg hover:bg-pink-400 transition font-yomogi'
               onClick={() => navigate(`/sotugyou?resultType=${getResult()}`)}
             >
               卒業
