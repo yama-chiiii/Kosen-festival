@@ -32,7 +32,7 @@ export const Kisekae = () => {
         id: Math.random().toString(),
         src,
         x: 200,
-        y: -1200, // 初期位置でKisekae内の調整を考慮
+        y: -200, // 初期位置でKisekae内の調整を考慮
         width: 100,
         height: 100,
       },
