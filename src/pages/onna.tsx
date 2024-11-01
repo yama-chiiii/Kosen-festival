@@ -251,9 +251,9 @@ export const Onna = () => {
           </div>
         </div>
         {count === years.length - 1 && (
-          <div className='w-4/5 absolute flex justify-center'>
+          <div className='w-3/4 absolute flex justify-center'>
             <button
-              className=' mt-20 px-11 py-5 bg-pink-300 text-white text-4xl rounded-2xl shadow-lg hover:bg-pink-400 transition font-yomogi'
+              className=' w-170 h-auto mt-40 px-11 py-10 bg-pink-300 text-white text-5xl rounded-2xl shadow-lg hover:bg-pink-400 transition font-yomogi'
               onClick={() => navigate(`/sotugyou?resultType=${getResult()}`)}
             >
               卒業
