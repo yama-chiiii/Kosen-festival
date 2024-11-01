@@ -167,7 +167,7 @@ export const Onna = () => {
     console.log('やみ度:', yami)
 
     return (
-      <div className='absolute top-180 left-130 z-40 font-yomogi font-base text-xl'>
+      <div className='absolute top-160 left-130 z-40 font-yomogi font-base text-xl'>
         <div>
           <p>
             リア充度{' '}
